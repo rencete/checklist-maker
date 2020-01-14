@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChecklistComponent implements OnInit {
   items: string[] = ["a","b","c","d","e","f","g"];
-  columns: number = 1;
+  columns: number = 5;
 
   constructor() { }
 

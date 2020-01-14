@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { ChecklistComponent } from './checklist/checklist.component';
 
 import { AngularMaterialModule } from "../angular-material/angular-material.module";
+import { UtilitiesModule } from "../utilities/utilities.module";
 
 @NgModule({
   declarations: [ChecklistComponent],
   imports: [
     CommonModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    UtilitiesModule
   ],
   exports: [ChecklistComponent]
 })
