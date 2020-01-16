@@ -1,0 +1,17 @@
+.mat-list-item .mat-checkbox {
+    margin-left: 16px;
+}
+
+.mat-list-item .mat-form-field {
+    margin-left: 32px;
+}
+
+.points-area {
+    display: flex;
+    flex-direction: row;
+}
+
+.points-area__blank {
+    width: 48px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.42);
+}

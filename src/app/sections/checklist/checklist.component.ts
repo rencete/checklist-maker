@@ -11,8 +11,7 @@ export class ChecklistComponent {
   private model: ChecklistModel;
 
   constructor() {
-    this.model = new ChecklistModel("checklist1", 7, 5);
-    this.model.items = ["a","b","c","d","e","f","g"];
+    this.model = new ChecklistModel("Checklist #1", 7, 5);
   }
 
   get items() {
@@ -25,5 +24,13 @@ export class ChecklistComponent {
 
   get length() {
     return this.model.length;
+  }
+
+  get title(): string {
+    return this.model.title;
+  }
+
+  get points(): number {
+    return this.model.points;
   }
 }

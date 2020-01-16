@@ -5,9 +5,14 @@ export class ChecklistModel {
         return this.items.length;
     }
 
-    constructor(public name: string, private _length: number = 1, public columns: number = 1) {
+    constructor(
+        public title: string,
+        private _length: number = 1,
+        public columns: number = 1,
+        public points: number = 2
+    ) {
         this.items = [];
-        for(let index = 0; index < this._length; index++) {
+        for (let index = 0; index < this._length; index++) {
             this.items.push("");
         }
     }
