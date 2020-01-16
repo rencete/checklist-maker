@@ -5,13 +5,12 @@ import { ChecklistModel } from "../../models/checklist.model";
 @Component({
   selector: 'app-checklist',
   templateUrl: './checklist.component.html',
-  styleUrls: ['./checklist.component.css']
+  styleUrls: ['./checklist.component.css'],
+  providers: [ChecklistModel]
 })
 export class ChecklistComponent {
-  private model: ChecklistModel;
 
-  constructor() {
-    this.model = new ChecklistModel("Checklist #1", 7, 5);
+  constructor(private model: ChecklistModel) {    
   }
 
   get items() {
