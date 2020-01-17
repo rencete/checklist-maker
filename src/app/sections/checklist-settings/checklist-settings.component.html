@@ -9,7 +9,7 @@
     <input type="number" matInput [(ngModel)]="columns" step="1" min="1" max="10">
     <mat-hint>Checkboxes per line</mat-hint>
 </mat-form-field>
-<div class="points-area">
+<div *ngIf="showPoints" class="points-area">
     <mat-form-field appearance="outline">
         <mat-label>Points</mat-label>
         <input type="number" matInput [(ngModel)]="points" step="1" min="0">

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChecklistModel } from 'src/app/models/checklist.model';
+import { DocumentSettingsService } from 'src/app/models/document-settings.service';
 
 @Component({
   selector: 'app-checklist-settings',
@@ -8,7 +9,10 @@ import { ChecklistModel } from 'src/app/models/checklist.model';
 })
 export class ChecklistSettingsComponent implements OnInit {
 
-  constructor(private model: ChecklistModel) { }
+  constructor(
+    private model: ChecklistModel,
+    private settings: DocumentSettingsService
+  ) { }
 
   ngOnInit() {
   }
@@ -35,5 +39,9 @@ export class ChecklistSettingsComponent implements OnInit {
 
   set points(pts: number) {
     this.model.points = pts;
+  }
+
+  get showPoints(): boolean {
+    return this.settings.showPoints;
   }
 }

@@ -1,20 +1,27 @@
 <mat-card>
     <div class="section-title">{{title}}</div>
-    <app-checklist-settings></app-checklist-settings>
+    <app-checklist-settings *ngIf="isEditable"></app-checklist-settings>
     <mat-list>
         <mat-list-item *ngFor="let item of items">
             <div>
                 <mat-checkbox *appCopies="columns"></mat-checkbox>
             </div>
-            <div>
-                <mat-form-field [floatLabel]="'never'">
-                    <input matInput type="text" placeholder="Checklist item" [(ngModel)]="item">
-                    <button mat-button *ngIf="item" matSuffix mat-icon-button aria-label="Clear" (click)="item=''">
-                        <mat-icon>close</mat-icon>
-                    </button>
-                </mat-form-field>
+
+            <ng-template #checklistValueInputs>
+                <div>
+                    <mat-form-field [floatLabel]="'never'">
+                        <input matInput type="text" placeholder="Checklist item" [(ngModel)]="item">
+                        <button mat-button *ngIf="item" matSuffix mat-icon-button aria-label="Clear" (click)="item=''">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+            </ng-template>
+            <div *ngIf="!isEditable;else checklistValueInputs">
+                <span>{{item}}</span>
             </div>
-            <div class="points-area">
+
+            <div *ngIf="showPoints" class="points-area">
                 <div class="points-area__blank"></div>
                 <span>{{points * columns}} points</span>
             </div>

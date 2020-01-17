@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { ChecklistModel } from "../../models/checklist.model";
+import { DocumentSettingsService } from 'src/app/models/document-settings.service';
 
 @Component({
   selector: 'app-checklist',
@@ -10,18 +11,21 @@ import { ChecklistModel } from "../../models/checklist.model";
 })
 export class ChecklistComponent {
 
-  constructor(private model: ChecklistModel) {    
+  constructor(
+    private model: ChecklistModel,
+    private settings: DocumentSettingsService
+  ) {
   }
 
-  get items() {
+  get items(): string[] {
     return this.model.items;
   }
 
-  get columns() {
+  get columns(): number {
     return this.model.columns;
   }
 
-  get length() {
+  get length(): number {
     return this.model.length;
   }
 
@@ -31,5 +35,13 @@ export class ChecklistComponent {
 
   get points(): number {
     return this.model.points;
+  }
+
+  get isEditable(): boolean {
+    return this.settings.editable;
+  }
+
+  get showPoints(): boolean {
+    return this.settings.showPoints;
   }
 }
