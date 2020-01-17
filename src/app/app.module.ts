@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { SectionsModule } from "./sections/sections.module";
+import { DocumentModule } from './document/document.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { SectionsModule } from "./sections/sections.module";
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    SectionsModule
+    DocumentModule
   ],
   providers: [],
   bootstrap: [AppComponent]

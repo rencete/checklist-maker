@@ -1,0 +1,18 @@
+<ng-template #EditableDocumentTitle>
+    <h3>Edit Title:
+        <mat-form-field [floatLabel]="'never'">
+            <input matInput type="text" placeholder="Checklist Title" [(ngModel)]="title">
+        </mat-form-field>
+    </h3>
+</ng-template>
+<h3 *ngIf="!editable;else EditableDocumentTitle">
+    Document Title: {{title}}
+</h3>
+
+<mat-slide-toggle [(ngModel)]="editable">
+    Edit Document
+</mat-slide-toggle>
+
+<mat-slide-toggle [(ngModel)]="showPoints">
+    Show Points
+</mat-slide-toggle>
