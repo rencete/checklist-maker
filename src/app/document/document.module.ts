@@ -5,11 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 import { DocumentSettingsComponent } from './document-settings/document-settings.component';
 import { SectionsModule } from '../sections/sections.module';
+import { DocumentMainComponent } from './document-main/document-main.component';
 
 
 @NgModule({
   declarations: [
-    DocumentSettingsComponent
+    DocumentSettingsComponent,
+    DocumentMainComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,7 @@ import { SectionsModule } from '../sections/sections.module';
     SectionsModule
   ],
   exports: [
-    DocumentSettingsComponent
+    DocumentMainComponent
   ]
 })
 export class DocumentModule { }
