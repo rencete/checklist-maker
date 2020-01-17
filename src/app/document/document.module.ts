@@ -6,12 +6,14 @@ import { AngularMaterialModule } from '../angular-material/angular-material.modu
 import { DocumentSettingsComponent } from './document-settings/document-settings.component';
 import { SectionsModule } from '../sections/sections.module';
 import { DocumentMainComponent } from './document-main/document-main.component';
+import { DocumentSectionsListComponent } from './document-sections-list/document-sections-list.component';
 
 
 @NgModule({
   declarations: [
     DocumentSettingsComponent,
-    DocumentMainComponent
+    DocumentMainComponent,
+    DocumentSectionsListComponent
   ],
   imports: [
     CommonModule,

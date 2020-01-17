@@ -1,0 +1,30 @@
+<mat-card>
+    <mat-card-title>Document Sections</mat-card-title>
+    <mat-card-subtitle>
+        Create, delete, and re-order sections for this document
+    </mat-card-subtitle>
+
+    <mat-card-content>
+        <mat-list>
+            <mat-list-item *ngFor="let section of getSections()">
+                {{section}}
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <mat-form-field>
+            <mat-label>Section Type</mat-label>
+            <mat-select #SectionSelect>
+                <mat-option *ngFor="let type of sectionTypes" [value]="type">
+                    {{type}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button mat-flat-button color="primary" 
+            (click)="addSection(SectionSelect.value)" 
+            [disabled]="!SectionSelect.value">
+            Add Section
+        </button>
+    </mat-card-actions>
+</mat-card>
