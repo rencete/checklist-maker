@@ -13,6 +13,6 @@
     Edit Document
 </mat-slide-toggle>
 
-<mat-slide-toggle [(ngModel)]="showPoints">
+<mat-slide-toggle [(ngModel)]="showPoints" *ngIf="editable">
     Show Points
 </mat-slide-toggle>
