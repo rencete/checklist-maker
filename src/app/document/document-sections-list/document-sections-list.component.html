@@ -5,8 +5,11 @@
     </mat-card-subtitle>
 
     <mat-card-content>
-        <mat-list>
-            <mat-list-item *ngFor="let section of getSections()">
+        <mat-list cdkDropList (cdkDropListDropped)="reorder($event)">
+            <mat-list-item cdkDrag *ngFor="let section of getSections()">
+                <div class="example-handle" cdkDragHandle>
+                    <mat-icon>reorder</mat-icon>
+                  </div>
                 {{section}}
             </mat-list-item>
         </mat-list>
@@ -14,7 +17,7 @@
 
     <mat-card-actions>
         <mat-form-field>
-            <mat-label>Section Type</mat-label>
+            <mat-label>Add a section of type</mat-label>
             <mat-select #SectionSelect>
                 <mat-option *ngFor="let type of sectionTypes" [value]="type">
                     {{type}}
@@ -22,7 +25,7 @@
             </mat-select>
         </mat-form-field>
         <button mat-flat-button color="primary" 
-            (click)="addSection(SectionSelect.value)" 
+            (click)="addSection(SectionSelect.value);SectionSelect.value=undefined" 
             [disabled]="!SectionSelect.value">
             Add Section
         </button>

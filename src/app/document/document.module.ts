@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 import { DocumentSettingsComponent } from './document-settings/document-settings.component';
@@ -18,6 +19,7 @@ import { DocumentSectionsListComponent } from './document-sections-list/document
   imports: [
     CommonModule,
     FormsModule,
+    DragDropModule,
     AngularMaterialModule,
     SectionsModule
   ],

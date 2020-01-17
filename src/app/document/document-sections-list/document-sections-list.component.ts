@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 import { SectionTypes } from 'src/app/models/section-types';
 import { DocumentSettingsService } from 'src/app/models/document-settings.service';
@@ -31,5 +32,9 @@ export class DocumentSectionsListComponent implements OnInit {
 
   getSections(): SectionTypes[] {
     return this.settings.sections;
+  }
+
+  reorder(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.settings.sections, event.previousIndex, event.currentIndex);
   }
 }
