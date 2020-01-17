@@ -6,11 +6,14 @@
 
     <mat-card-content>
         <mat-list cdkDropList (cdkDropListDropped)="reorder($event)">
-            <mat-list-item cdkDrag *ngFor="let section of getSections()">
+            <mat-list-item cdkDrag *ngFor="let section of getSections();let index=index">
                 <div class="example-handle" cdkDragHandle>
                     <mat-icon>reorder</mat-icon>
-                  </div>
+                </div>
                 {{section}}
+                <button mat-button mat-icon-button (click)="deleteSection(index)">
+                    <mat-icon>delete</mat-icon>
+                </button>
             </mat-list-item>
         </mat-list>
     </mat-card-content>
@@ -24,8 +27,8 @@
                 </mat-option>
             </mat-select>
         </mat-form-field>
-        <button mat-flat-button color="primary" 
-            (click)="addSection(SectionSelect.value);SectionSelect.value=undefined" 
+        <button mat-flat-button color="primary"
+            (click)="addSection(SectionSelect.value);SectionSelect.value=undefined"
             [disabled]="!SectionSelect.value">
             Add Section
         </button>

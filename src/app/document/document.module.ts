@@ -8,13 +8,15 @@ import { DocumentSettingsComponent } from './document-settings/document-settings
 import { SectionsModule } from '../sections/sections.module';
 import { DocumentMainComponent } from './document-main/document-main.component';
 import { DocumentSectionsListComponent } from './document-sections-list/document-sections-list.component';
+import { DeleteSectionConfirmDialogComponent } from './document-sections-list/delete-section-confirm-dialog.component';
 
 
 @NgModule({
   declarations: [
     DocumentSettingsComponent,
     DocumentMainComponent,
-    DocumentSectionsListComponent
+    DocumentSectionsListComponent,
+    DeleteSectionConfirmDialogComponent
   ],
   imports: [
     CommonModule,
@@ -25,6 +27,9 @@ import { DocumentSectionsListComponent } from './document-sections-list/document
   ],
   exports: [
     DocumentMainComponent
+  ],
+  entryComponents: [
+    DeleteSectionConfirmDialogComponent
   ]
 })
 export class DocumentModule { }
