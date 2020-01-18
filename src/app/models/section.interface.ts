@@ -1,8 +1,8 @@
 import { SectionTypes } from './section-types';
 import { ChecklistModel } from './checklist.model';
 
-export interface Sections {
-    name: String;
+export interface Section {
+    id: number;
     type: SectionTypes;
     model: ChecklistModel;
 }

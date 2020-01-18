@@ -3,6 +3,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { MatDialog } from '@angular/material';
 
 import { SectionTypes } from 'src/app/models/section-types';
+import { Section } from "src/app/models/section.interface";
 import { DocumentModelService } from 'src/app/models/document-model.service';
 import { DeleteSectionConfirmDialogComponent } from './delete-section-confirm-dialog.component';
 
@@ -29,15 +30,15 @@ export class DocumentSectionsListComponent implements OnInit {
   }
 
   addSection(type: SectionTypes) {
-    this.settings.sections.push(type);
+    this.settings.model.addSectionOfType(type);
   }
 
-  getSections(): SectionTypes[] {
-    return this.settings.sections;
+  getSections(): Section[] {
+    return this.settings.model.sections;
   }
 
   reorder(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.settings.sections, event.previousIndex, event.currentIndex);
+    moveItemInArray(this.settings.model.sections, event.previousIndex, event.currentIndex);
   }
 
   deleteSection(index: number) {
@@ -47,7 +48,7 @@ export class DocumentSectionsListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
-        this.settings.sections.splice(index, 1);
+        this.settings.model.sections.splice(index, 1);
       }
     });
   }

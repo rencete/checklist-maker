@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { DocumentModelService } from 'src/app/models/document-model.service';
+import { DocumentModel } from 'src/app/models/document.model';
 
 @Component({
   selector: 'app-document-head',
@@ -9,29 +10,33 @@ import { DocumentModelService } from 'src/app/models/document-model.service';
 })
 export class DocumentHeadComponent {
 
-  constructor(private settings: DocumentModelService) { }
+  constructor(private settings: DocumentModelService) { 
+    //TODO: Delete this (temporary)
+    let model = new DocumentModel("Test Checklist");
+    this.settings.model = model;
+  }
 
   get title(): string {
-    return this.settings.title;
+    return this.settings.model.title;
   }
   
   set title(val: string) {
-    this.settings.title = val;
+    this.settings.model.title = val;
   }
 
   get editable(): boolean {
-    return this.settings.editable;
+    return this.settings.model.editable;
   }
 
   set editable(val: boolean) {
-    this.settings.editable = val;
+    this.settings.model.editable = val;
   }
 
   get showPoints(): boolean {
-    return this.settings.showPoints;
+    return this.settings.model.showPoints;
   }
 
   set showPoints(val: boolean) {
-    this.settings.showPoints = val;
+    this.settings.model.showPoints = val;
   }
 }

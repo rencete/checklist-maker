@@ -42,6 +42,6 @@ export class ChecklistSettingsComponent implements OnInit {
   }
 
   get showPoints(): boolean {
-    return this.settings.showPoints;
+    return this.settings.model.showPoints;
   }
 }

@@ -1,15 +1,11 @@
 import { Injectable } from '@angular/core';
-import { SectionTypes } from './section-types';
+import { DocumentModel } from './document.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DocumentModelService {
-  public title: string = "";
-  public editable: boolean = false;
-  public showPoints: boolean = true;
-
-  public sections: SectionTypes[] = [];
+  public model: DocumentModel;
 
   constructor() { }
 }

@@ -38,10 +38,10 @@ export class ChecklistComponent {
   }
 
   get isEditable(): boolean {
-    return this.settings.editable;
+    return this.settings.model.editable;
   }
 
   get showPoints(): boolean {
-    return this.settings.showPoints;
+    return this.settings.model.showPoints;
   }
 }
