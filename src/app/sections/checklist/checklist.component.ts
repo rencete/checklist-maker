@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { ChecklistModel } from "../../models/checklist.model";
-import { DocumentSettingsService } from 'src/app/models/document-settings.service';
+import { DocumentModelService } from 'src/app/models/document-model.service';
 
 @Component({
   selector: 'app-checklist',
@@ -13,7 +13,7 @@ export class ChecklistComponent {
 
   constructor(
     private model: ChecklistModel,
-    private settings: DocumentSettingsService
+    private settings: DocumentModelService
   ) {
   }
 

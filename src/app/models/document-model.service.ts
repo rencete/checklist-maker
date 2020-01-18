@@ -4,7 +4,7 @@ import { SectionTypes } from './section-types';
 @Injectable({
   providedIn: 'root'
 })
-export class DocumentSettingsService {
+export class DocumentModelService {
   public title: string = "";
   public editable: boolean = false;
   public showPoints: boolean = true;

@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
 
-import { DocumentSettingsService } from 'src/app/models/document-settings.service';
-import { ReturnStatement } from '@angular/compiler';
+import { DocumentModelService } from 'src/app/models/document-model.service';
 
 @Component({
-  selector: 'app-document-settings',
-  templateUrl: './document-settings.component.html',
-  styleUrls: ['./document-settings.component.css']
+  selector: 'app-document-head',
+  templateUrl: './document-head.component.html',
+  styleUrls: ['./document-head.component.css']
 })
-export class DocumentSettingsComponent {
+export class DocumentHeadComponent {
 
-  constructor(private settings: DocumentSettingsService) { }
+  constructor(private settings: DocumentModelService) { }
 
   get title(): string {
     return this.settings.title;

@@ -3,7 +3,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { MatDialog } from '@angular/material';
 
 import { SectionTypes } from 'src/app/models/section-types';
-import { DocumentSettingsService } from 'src/app/models/document-settings.service';
+import { DocumentModelService } from 'src/app/models/document-model.service';
 import { DeleteSectionConfirmDialogComponent } from './delete-section-confirm-dialog.component';
 
 @Component({
@@ -14,7 +14,7 @@ import { DeleteSectionConfirmDialogComponent } from './delete-section-confirm-di
 export class DocumentSectionsListComponent implements OnInit {
   public sectionTypes: string[] = [];
 
-  constructor(private settings: DocumentSettingsService, private dialog: MatDialog) { }
+  constructor(private settings: DocumentModelService, private dialog: MatDialog) { }
 
   ngOnInit() {
     this.getSectionTypes();

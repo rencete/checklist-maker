@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChecklistModel } from 'src/app/models/checklist.model';
-import { DocumentSettingsService } from 'src/app/models/document-settings.service';
+import { DocumentModelService } from 'src/app/models/document-model.service';
 
 @Component({
   selector: 'app-checklist-settings',
@@ -11,7 +11,7 @@ export class ChecklistSettingsComponent implements OnInit {
 
   constructor(
     private model: ChecklistModel,
-    private settings: DocumentSettingsService
+    private settings: DocumentModelService
   ) { }
 
   ngOnInit() {

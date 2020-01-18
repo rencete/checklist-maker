@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
-import { DocumentSettingsComponent } from './document-settings/document-settings.component';
+import { DocumentHeadComponent } from './document-head/document-head.component';
 import { SectionsModule } from '../sections/sections.module';
 import { DocumentMainComponent } from './document-main/document-main.component';
 import { DocumentSectionsListComponent } from './document-sections-list/document-sections-list.component';
@@ -13,7 +13,7 @@ import { DeleteSectionConfirmDialogComponent } from './document-sections-list/de
 
 @NgModule({
   declarations: [
-    DocumentSettingsComponent,
+    DocumentHeadComponent,
     DocumentMainComponent,
     DocumentSectionsListComponent,
     DeleteSectionConfirmDialogComponent
