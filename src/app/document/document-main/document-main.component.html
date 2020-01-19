@@ -6,8 +6,12 @@
     <mat-card>
         <ng-container *ngFor="let section of getSections()">
             <ng-container [ngSwitch]="section.type">
-                <app-checklist *ngSwitchCase="'Checklist'">
+                <app-checklist *ngSwitchCase="sectionTypes[sectionTypes.Checklist]">
                 </app-checklist>
+
+                <mat-card *ngSwitchCase="sectionTypes[sectionTypes.Separator]">
+                    <mat-divider></mat-divider>
+                </mat-card>
             </ng-container>
         </ng-container>
     </mat-card>
