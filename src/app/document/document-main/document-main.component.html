@@ -3,5 +3,12 @@
 <app-document-sections-list></app-document-sections-list>
 
 <div id="document-main-body">
-    <app-checklist></app-checklist>
+    <mat-card>
+        <ng-container *ngFor="let section of getSections()">
+            <ng-container [ngSwitch]="section.type">
+                <app-checklist *ngSwitchCase="'Checklist'">
+                </app-checklist>
+            </ng-container>
+        </ng-container>
+    </mat-card>
 </div>

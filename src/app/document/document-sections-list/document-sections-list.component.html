@@ -6,7 +6,7 @@
 
     <mat-card-content>
         <mat-list cdkDropList (cdkDropListDropped)="reorder($event)">
-            <mat-list-item cdkDrag *ngFor="let section of getSections();let index=index">
+            <mat-list-item cdkDrag *ngFor="let section of getSections();let index=index;trackBy:section?.id">
                 <div class="example-handle" cdkDragHandle>
                     <mat-icon>reorder</mat-icon>
                 </div>
