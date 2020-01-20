@@ -1,32 +1,36 @@
 <mat-card>
-    <div class="section-title">{{model?.title}}</div>
-    <app-checklist-settings [sectionId]="sectionId" *ngIf="document.model.editable"></app-checklist-settings>
+    <mat-card-title>{{model?.title}}</mat-card-title>    
 
-    <mat-list>
-        <mat-list-item *ngFor="let item of model?.items">
-            <div>
-                <mat-checkbox *appCopies="model?.columns"></mat-checkbox>
-            </div>
-
-            <ng-template #checklistValueInputs>
+    <mat-card-content>
+        <mat-list>
+            <mat-list-item *ngFor="let item of model?.items">
                 <div>
-                    <mat-form-field [floatLabel]="'never'">
-                        <input matInput type="text" placeholder="Checklist item" [(ngModel)]="item">
-                        <button mat-button *ngIf="item" matSuffix mat-icon-button aria-label="Clear" (click)="item=''">
-                            <mat-icon>close</mat-icon>
-                        </button>
-                    </mat-form-field>
+                    <mat-checkbox *appCopies="model?.columns"></mat-checkbox>
                 </div>
-            </ng-template>
-            <div *ngIf="!document.model.editable;else checklistValueInputs">
-                <span>{{item}}</span>
-            </div>
+    
+                <ng-template #checklistValueInputs>
+                    <div>
+                        <mat-form-field [floatLabel]="'never'">
+                            <input matInput type="text" placeholder="Checklist item" [(ngModel)]="item">
+                            <button mat-button *ngIf="item" matSuffix mat-icon-button aria-label="Clear" (click)="item=''">
+                                <mat-icon>close</mat-icon>
+                            </button>
+                        </mat-form-field>
+                    </div>
+                </ng-template>
+                <div *ngIf="!document.model.editable;else checklistValueInputs">
+                    <span>{{item}}</span>
+                </div>
+    
+                <div *ngIf="document.model.showPoints" class="points-area">
+                    <div class="points-area__blank"></div>
+                    <span>{{model?.points * model?.columns}} points</span>
+                </div>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
 
-            <div *ngIf="document.model.showPoints" class="points-area">
-                <div class="points-area__blank"></div>
-                <span>{{model?.points * model?.columns}} points</span>
-            </div>
-        </mat-list-item>
-    </mat-list>
-    <span>There are {{model?.items?.length}} items</span>
+    <mat-card-actions>
+        <app-checklist-settings [sectionId]="sectionId" *ngIf="document.model.editable"></app-checklist-settings>
+    </mat-card-actions>
 </mat-card>
