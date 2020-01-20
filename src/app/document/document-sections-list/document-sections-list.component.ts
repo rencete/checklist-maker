@@ -37,7 +37,7 @@ export class DocumentSectionsListComponent implements OnInit {
     return this.settings.model.sections;
   }
 
-  reorder(event: CdkDragDrop<string[]>) {
+  reorder(event: CdkDragDrop<Section[]>) {
     moveItemInArray(this.settings.model.sections, event.previousIndex, event.currentIndex);
   }
 

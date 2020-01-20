@@ -1,18 +1,53 @@
-<button mat-flat-button color="primary" (click)="addItem()">
-    Add Checklist Item
-</button>
-<button mat-flat-button color="primary" (click)="removeLastItem()">
-    Remove Last Checklist Item
-</button>
-<mat-form-field appearance="outline">
-    <mat-label>Checkboxes</mat-label>
-    <input type="number" matInput [(ngModel)]="model.columns" step="1" min="1" max="10">
-    <mat-hint>Checkboxes per line</mat-hint>
+<mat-form-field appearance="fill" class="title-input">
+    <mat-label>Title text</mat-label>
+    <input matInput type="text" [(ngModel)]="model.title">
+    <button mat-button *ngIf="model.title" matSuffix mat-icon-button aria-label="Clear" (click)="model.title=''">
+        <mat-icon>close</mat-icon>
+    </button>
 </mat-form-field>
-<div *ngIf="document.model.showPoints" class="points-area">
-    <mat-form-field appearance="outline">
+
+<div>
+    <mat-form-field appearance="outline" class="number-input">
+        <mat-label>Checkboxes</mat-label>
+        <input type="number" matInput [(ngModel)]="model.columns" step="1" min="1" max="10">
+        <mat-hint>Checkboxes per item</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline" *ngIf="document.model.showPoints" class="number-input">
         <mat-label>Points</mat-label>
         <input type="number" matInput [(ngModel)]="model.points" step="1" min="0">
         <mat-hint>Points per checkbox</mat-hint>
     </mat-form-field>
+</div>
+
+<mat-divider [inset]="true"></mat-divider>
+
+<h3>
+    Checklist Items
+    <button mat-mini-fab aria-label="Add checklist item button" color="primary" (click)="addItem()">
+        <mat-icon>add</mat-icon>
+    </button>
+</h3>
+
+<p *ngIf="model.items.length == 0">[ Add items to display them here ]</p>
+
+<mat-list cdkDropList (cdkDropListDropped)="reorder($event)">
+    <mat-list-item cdkDrag *ngFor="let item of model.items; let index=index; trackBy:trackByIndex">
+        <mat-icon cdkDragHandle class="list__icon">drag_handle</mat-icon>
+        <mat-form-field [floatLabel]="'never'" class="list__input">
+            <input matInput type="text" placeholder="Item text" [(ngModel)]="model.items[index]">
+            <button mat-button *ngIf="model.items[index]" matSuffix mat-icon-button aria-label="Clear"
+                (click)="model.items[index]=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <button mat-button mat-icon-button aria-label="Delete" (click)="deleteItem(index)">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </mat-list-item>
+</mat-list>
+
+<div>
+    <button mat-flat-button color="primary" (click)="removeLastItem()">
+        <mat-icon>remove</mat-icon>Item
+    </button>
 </div>

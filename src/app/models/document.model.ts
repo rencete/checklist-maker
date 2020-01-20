@@ -4,7 +4,7 @@ import { ChecklistModel } from './checklist.model';
 
 export class DocumentModel {
     public title: string = "";
-    public editable: boolean = false;
+    public editable: boolean = true;
     public showPoints: boolean = false;
     public sections: Section[] = [];
   

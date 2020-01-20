@@ -5,22 +5,21 @@
     </mat-card-subtitle>
 
     <mat-card-content>
-        <mat-accordion [multi]="true" [togglePosition]="'before'" cdkDropList (cdkDropListDropped)="reorder($event)">
+        <mat-accordion [multi]="true" cdkDropList (cdkDropListDropped)="reorder($event)">
             <mat-expansion-panel cdkDrag *ngFor="let section of getSections();let index=index;trackBy:section?.id">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        <mat-icon>reorder</mat-icon>
-                        [{{section.type | uppercase}}] {{section.model?.title}}
+                        <mat-icon cdkDragHandle>drag_handle</mat-icon>
+                        [{{section.type | uppercase}}]
                     </mat-panel-title>
+                    <mat-panel-description>
+                        {{section.model?.title}}
+                    </mat-panel-description>
                 </mat-expansion-panel-header>
                 
                 <ng-container [ngSwitch]="section.type">
-                    <app-checklist [sectionId]="section.id" *ngSwitchCase="'Checklist'">
-                    </app-checklist>
-    
-                    <mat-card *ngSwitchCase="'Separator'">
-                        <mat-divider></mat-divider>
-                    </mat-card>
+                    <app-checklist-settings [sectionId]="section.id" *ngSwitchCase="'Checklist'">
+                    </app-checklist-settings>
                 </ng-container>
 
                 <mat-action-row>
@@ -30,14 +29,6 @@
                 </mat-action-row>
 
             </mat-expansion-panel>
-
-            <!-- <mat-list-item cdkDrag *ngFor="let section of getSections();let index=index;trackBy:section?.id">
-                
-                {{section.type}}
-                <button mat-button mat-icon-button (click)="deleteSection(index)">
-                    <mat-icon>delete</mat-icon>
-                </button>
-            </mat-list-item> -->
 
         </mat-accordion>
     </mat-card-content>

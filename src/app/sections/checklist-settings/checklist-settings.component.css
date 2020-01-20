@@ -1,0 +1,18 @@
+.number-input {
+    width: 130px;
+    margin-right: 16px;
+}
+
+.title-input {
+    width: 276px;
+}
+
+/* .list__icon {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+} */
+
+.list__input {
+    padding-left: 16px;
+}

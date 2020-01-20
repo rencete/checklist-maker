@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { ChecklistModel } from 'src/app/models/checklist.model';
 import { DocumentModelService } from 'src/app/models/document-model.service';
 
@@ -28,5 +29,21 @@ export class ChecklistSettingsComponent implements OnInit {
 
   removeLastItem() {
     this.model.items.pop();
+  }
+
+  update(val: string, index: number) {
+    this.model.items[index] = val;
+  }
+
+  reorder(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.model.items, event.previousIndex, event.currentIndex);
+  }
+
+  trackByIndex(index: number, obj: any) {
+    return index;
+  }
+
+  deleteItem(index: number) {
+    this.model.items.splice(index, 1);
   }
 }
