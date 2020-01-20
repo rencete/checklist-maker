@@ -11,8 +11,8 @@ export class ChecklistModel {
         return this.items.length;
     }
 
-    constructor() {
-        this.title = "Checklist Title"
-        this.items = [""];
+    constructor(title: string = "") {
+        this.title = title;
+        this.items = [];
     }
 }
