@@ -23,7 +23,7 @@ export class DocumentSectionsListComponent implements OnInit {
 
   private getSectionTypes() {
     for (let type in SectionTypes) {
-      if (typeof SectionTypes[type] === 'number') {
+      if (this.sectionTypes.findIndex(str => str == type) < 0) {
         this.sectionTypes.push(type);
       }
     }

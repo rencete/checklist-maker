@@ -1,10 +1,11 @@
 <mat-card>
-    <div class="section-title">{{title}}</div>
-    <app-checklist-settings *ngIf="isEditable"></app-checklist-settings>
+    <div class="section-title">{{model?.title}}</div>
+    <app-checklist-settings [sectionId]="sectionId" *ngIf="document.model.editable"></app-checklist-settings>
+
     <mat-list>
-        <mat-list-item *ngFor="let item of items">
+        <mat-list-item *ngFor="let item of model?.items">
             <div>
-                <mat-checkbox *appCopies="columns"></mat-checkbox>
+                <mat-checkbox *appCopies="model?.columns"></mat-checkbox>
             </div>
 
             <ng-template #checklistValueInputs>
@@ -17,15 +18,15 @@
                     </mat-form-field>
                 </div>
             </ng-template>
-            <div *ngIf="!isEditable;else checklistValueInputs">
+            <div *ngIf="!document.model.editable;else checklistValueInputs">
                 <span>{{item}}</span>
             </div>
 
-            <div *ngIf="showPoints" class="points-area">
+            <div *ngIf="document.model.showPoints" class="points-area">
                 <div class="points-area__blank"></div>
-                <span>{{points * columns}} points</span>
+                <span>{{model?.points * model?.columns}} points</span>
             </div>
         </mat-list-item>
     </mat-list>
-    <span>There are {{length}} items</span>
+    <span>There are {{model?.items?.length}} items</span>
 </mat-card>

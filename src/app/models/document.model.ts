@@ -25,9 +25,11 @@ export class DocumentModel {
         switch(type) {
             case SectionTypes.Checklist: {
                 model = new ChecklistModel();
+                break;
             }
             default: {
                 model = undefined;
+                break;
             }
         }
         let newSection: Section = {
@@ -36,5 +38,9 @@ export class DocumentModel {
             model: model
         }
         this.sections.push(newSection);
+    }
+
+    public getSection(id: number) {
+        return this.sections.find(s => s.id == id);
     }
   }

@@ -6,13 +6,13 @@
 </button>
 <mat-form-field appearance="outline">
     <mat-label>Checkboxes</mat-label>
-    <input type="number" matInput [(ngModel)]="columns" step="1" min="1" max="10">
+    <input type="number" matInput [(ngModel)]="model.columns" step="1" min="1" max="10">
     <mat-hint>Checkboxes per line</mat-hint>
 </mat-form-field>
-<div *ngIf="showPoints" class="points-area">
+<div *ngIf="document.model.showPoints" class="points-area">
     <mat-form-field appearance="outline">
         <mat-label>Points</mat-label>
-        <input type="number" matInput [(ngModel)]="points" step="1" min="0">
+        <input type="number" matInput [(ngModel)]="model.points" step="1" min="0">
         <mat-hint>Points per checkbox</mat-hint>
     </mat-form-field>
 </div>

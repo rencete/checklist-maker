@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ChecklistModel } from 'src/app/models/checklist.model';
 import { DocumentModelService } from 'src/app/models/document-model.service';
 
@@ -8,13 +8,18 @@ import { DocumentModelService } from 'src/app/models/document-model.service';
   styleUrls: ['./checklist-settings.component.css']
 })
 export class ChecklistSettingsComponent implements OnInit {
+  @Input()
+  sectionId: number;
+
+  public model: ChecklistModel;
 
   constructor(
-    private model: ChecklistModel,
-    private settings: DocumentModelService
+    public document: DocumentModelService
   ) { }
 
   ngOnInit() {
+    let section = this.document.model.getSection(this.sectionId);
+    this.model = section ? section.model : undefined;
   }
 
   addItem() {
@@ -23,25 +28,5 @@ export class ChecklistSettingsComponent implements OnInit {
 
   removeLastItem() {
     this.model.items.pop();
-  }
-
-  get columns(): number {
-    return this.model.columns;
-  }
-
-  set columns(col: number) {
-    this.model.columns = col;
-  }
-
-  get points(): number {
-    return this.model.points;
-  }
-
-  set points(pts: number) {
-    this.model.points = pts;
-  }
-
-  get showPoints(): boolean {
-    return this.settings.model.showPoints;
   }
 }

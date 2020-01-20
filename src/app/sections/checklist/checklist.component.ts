@@ -1,47 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { ChecklistModel } from "../../models/checklist.model";
 import { DocumentModelService } from 'src/app/models/document-model.service';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-checklist',
   templateUrl: './checklist.component.html',
-  styleUrls: ['./checklist.component.css'],
-  providers: [ChecklistModel]
+  styleUrls: ['./checklist.component.css']
 })
-export class ChecklistComponent {
+export class ChecklistComponent implements OnInit {
+  @Input()
+  sectionId: number;
+
+  public model: ChecklistModel;
 
   constructor(
-    private model: ChecklistModel,
-    private settings: DocumentModelService
-  ) {
-  }
+    public document: DocumentModelService
+  ) { }
 
-  get items(): string[] {
-    return this.model.items;
-  }
-
-  get columns(): number {
-    return this.model.columns;
-  }
-
-  get length(): number {
-    return this.model.length;
-  }
-
-  get title(): string {
-    return this.model.title;
-  }
-
-  get points(): number {
-    return this.model.points;
-  }
-
-  get isEditable(): boolean {
-    return this.settings.model.editable;
-  }
-
-  get showPoints(): boolean {
-    return this.settings.model.showPoints;
+  ngOnInit() {
+    let section = this.document.model.getSection(this.sectionId);
+    this.model = section ? section.model : undefined;
   }
 }
