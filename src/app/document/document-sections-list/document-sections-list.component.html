@@ -5,17 +5,41 @@
     </mat-card-subtitle>
 
     <mat-card-content>
-        <mat-list cdkDropList (cdkDropListDropped)="reorder($event)">
-            <mat-list-item cdkDrag *ngFor="let section of getSections();let index=index;trackBy:section?.id">
-                <div class="example-handle" cdkDragHandle>
-                    <mat-icon>reorder</mat-icon>
-                </div>
+        <mat-accordion [multi]="true" [togglePosition]="'before'" cdkDropList (cdkDropListDropped)="reorder($event)">
+            <mat-expansion-panel cdkDrag *ngFor="let section of getSections();let index=index;trackBy:section?.id">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon>reorder</mat-icon>
+                        [{{section.type | uppercase}}] {{section.model?.title}}
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                
+                <ng-container [ngSwitch]="section.type">
+                    <app-checklist [sectionId]="section.id" *ngSwitchCase="'Checklist'">
+                    </app-checklist>
+    
+                    <mat-card *ngSwitchCase="'Separator'">
+                        <mat-divider></mat-divider>
+                    </mat-card>
+                </ng-container>
+
+                <mat-action-row>
+                    <button mat-button (click)="deleteSection(index)">
+                        Delete Section<mat-icon>delete</mat-icon>
+                    </button>
+                </mat-action-row>
+
+            </mat-expansion-panel>
+
+            <!-- <mat-list-item cdkDrag *ngFor="let section of getSections();let index=index;trackBy:section?.id">
+                
                 {{section.type}}
                 <button mat-button mat-icon-button (click)="deleteSection(index)">
                     <mat-icon>delete</mat-icon>
                 </button>
-            </mat-list-item>
-        </mat-list>
+            </mat-list-item> -->
+
+        </mat-accordion>
     </mat-card-content>
 
     <mat-card-actions>
@@ -27,8 +51,7 @@
                 </mat-option>
             </mat-select>
         </mat-form-field>
-        <button mat-flat-button color="primary"
-            (click)="addSection(SectionSelect.value);SectionSelect.value=undefined"
+        <button mat-flat-button color="primary" (click)="addSection(SectionSelect.value);SectionSelect.value=undefined"
             [disabled]="!SectionSelect.value">
             Add Section
         </button>

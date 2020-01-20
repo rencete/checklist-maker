@@ -1,18 +1,3 @@
 <app-document-head></app-document-head>
 
 <app-document-sections-list></app-document-sections-list>
-
-<div id="document-main-body">
-    <mat-card>
-        <ng-container *ngFor="let section of getSections()">
-            <ng-container [ngSwitch]="section.type">
-                <app-checklist [sectionId]="section.id" *ngSwitchCase="sectionTypes.Checklist">
-                </app-checklist>
-
-                <mat-card *ngSwitchCase="sectionTypes.Separator">
-                    <mat-divider></mat-divider>
-                </mat-card>
-            </ng-container>
-        </ng-container>
-    </mat-card>
-</div>
