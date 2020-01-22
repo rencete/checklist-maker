@@ -18,8 +18,11 @@
                 </mat-expansion-panel-header>
                 
                 <ng-container [ngSwitch]="section.type">
-                    <app-checklist-settings [sectionId]="section.id" *ngSwitchCase="'Checklist'">
+                    <app-checklist-settings [sectionId]="section.id" *ngSwitchCase="sectionTypes.Checklist">
                     </app-checklist-settings>
+
+                    <app-section-header-edit [sectionId]="section.id" *ngSwitchCase="sectionTypes.Header">
+                    </app-section-header-edit>
                 </ng-container>
 
                 <mat-action-row>
@@ -37,7 +40,7 @@
         <mat-form-field>
             <mat-label>Add a section of type</mat-label>
             <mat-select #SectionSelect>
-                <mat-option *ngFor="let type of sectionTypes" [value]="type">
+                <mat-option *ngFor="let type of sectionTypeValues" [value]="type">
                     {{type}}
                 </mat-option>
             </mat-select>

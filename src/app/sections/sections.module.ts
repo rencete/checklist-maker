@@ -7,11 +7,13 @@ import { AngularMaterialModule } from "../angular-material/angular-material.modu
 import { UtilitiesModule } from "../utilities/utilities.module";
 import { ChecklistComponent } from './checklist/checklist.component';
 import { ChecklistSettingsComponent } from './checklist-settings/checklist-settings.component';
+import { SectionHeaderEditComponent } from './section-header-edit/section-header-edit.component';
 
 @NgModule({
   declarations: [
     ChecklistComponent, 
-    ChecklistSettingsComponent
+    ChecklistSettingsComponent,
+    SectionHeaderEditComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { ChecklistSettingsComponent } from './checklist-settings/checklist-setti
   ],
   exports: [
     ChecklistComponent,
-    ChecklistSettingsComponent
+    ChecklistSettingsComponent,
+    SectionHeaderEditComponent
   ]
 })
 export class SectionsModule { }

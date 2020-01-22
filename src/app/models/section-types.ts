@@ -1,5 +1,5 @@
 export enum SectionTypes {
     Checklist = "Checklist",
-    "Section Header" = "Section Header",
+    Header = "Header",
     Separator = "Separator"
 }

@@ -13,7 +13,8 @@ import { DeleteSectionConfirmDialogComponent } from './delete-section-confirm-di
   styleUrls: ['./document-sections-list.component.css']
 })
 export class DocumentSectionsListComponent implements OnInit {
-  public sectionTypes: string[] = [];
+  public sectionTypeValues: string[] = [];
+  public sectionTypes = SectionTypes;
 
   constructor(private settings: DocumentModelService, private dialog: MatDialog) { }
 
@@ -23,8 +24,8 @@ export class DocumentSectionsListComponent implements OnInit {
 
   private getSectionTypes() {
     for (let type in SectionTypes) {
-      if (this.sectionTypes.findIndex(str => str == type) < 0) {
-        this.sectionTypes.push(type);
+      if (this.sectionTypeValues.findIndex(str => str == type) < 0) {
+        this.sectionTypeValues.push(type);
       }
     }
   }

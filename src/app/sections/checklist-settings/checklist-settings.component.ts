@@ -20,7 +20,7 @@ export class ChecklistSettingsComponent implements OnInit {
 
   ngOnInit() {
     let section = this.document.model.getSection(this.sectionId);
-    this.model = section ? section.model : undefined;
+    this.model = section ? section.model as ChecklistModel : undefined;
   }
 
   addItem() {
