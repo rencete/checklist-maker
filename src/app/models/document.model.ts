@@ -7,7 +7,7 @@ import { QuestionsSectionModel } from './questions-section.model';
 export class DocumentModel {
     public title: string = "";
     public editable: boolean = true;
-    public showPoints: boolean = false;
+    public showPoints: boolean = true;
     public sections: Section[] = [];
   
     private _nextId: number = 0;

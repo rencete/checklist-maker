@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { ChecklistModel } from 'src/app/models/checklist.model';
+import { ChecklistModel, ChecklistItemModel, ChecklistPointTypes } from 'src/app/models/checklist.model';
 import { DocumentModelService } from 'src/app/models/document-model.service';
 
 @Component({
@@ -24,15 +24,7 @@ export class ChecklistSettingsComponent implements OnInit {
   }
 
   addItem() {
-    this.model.items.push("");
-  }
-
-  removeLastItem() {
-    this.model.items.pop();
-  }
-
-  update(val: string, index: number) {
-    this.model.items[index] = val;
+    this.model.items.push(new ChecklistItemModel());
   }
 
   reorder(event: CdkDragDrop<string[]>) {
@@ -45,5 +37,10 @@ export class ChecklistSettingsComponent implements OnInit {
 
   deleteItem(index: number) {
     this.model.items.splice(index, 1);
+  }
+
+  showPointsInSettings(): boolean {
+    return this.model.pointsType == ChecklistPointTypes.perCheckbox || 
+      this.model.pointsType == ChecklistPointTypes.perSection;
   }
 }

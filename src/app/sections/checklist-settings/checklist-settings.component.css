@@ -4,15 +4,18 @@
 }
 
 .title-input {
-    width: 276px;
+    width: 240px;
 }
-
-/* .list__icon {
-    font-size: 24px;
-    width: 24px;
-    height: 24px;
-} */
 
 .list__input {
     padding-left: 16px;
+    width: 200px;
+}
+
+.checklist-items-list > .mat-list-item {
+    font-size: 14px;
+}
+
+.checklist-item-points {
+    width: 64px;
 }

@@ -1,11 +1,9 @@
-import { Injectable } from '@angular/core';
-
-@Injectable()
 export class ChecklistModel {
     public title: string;
-    public items: string[];
+    public items: ChecklistItemModel[] = [];
     public columns: number = 1;
-    public points: number = 2;
+    public points: number = 2; // used either if Points Style in [perCheckbox, perSection]
+    public pointsType: ChecklistPointTypes = ChecklistPointTypes.perCheckbox;
 
     public get length(): number {
         return this.items.length;
@@ -13,6 +11,20 @@ export class ChecklistModel {
 
     constructor(title: string = "") {
         this.title = title;
-        this.items = [];
     }
+}
+
+export class ChecklistItemModel {
+    public text: string;
+    public points: number = 2; // used either if Points Style = perItem
+
+    constructor(text: string = "") {
+        this.text = text;
+    }
+}
+
+export enum ChecklistPointTypes {
+    perCheckbox,
+    perItem,
+    perSection
 }
