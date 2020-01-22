@@ -2,6 +2,7 @@ import { Section } from './section.interface';
 import { SectionTypes } from './section-types';
 import { ChecklistModel } from './checklist.model';
 import { SectionHeaderModel } from './section-header.model';
+import { QuestionsSectionModel } from './questions-section.model';
 
 export class DocumentModel {
     public title: string = "";
@@ -30,6 +31,10 @@ export class DocumentModel {
             }
             case SectionTypes.Header: {
                 model = new SectionHeaderModel();
+                break;
+            }
+            case SectionTypes.Questions: {
+                model = new QuestionsSectionModel();
                 break;
             }
             default: {

@@ -8,12 +8,14 @@ import { UtilitiesModule } from "../utilities/utilities.module";
 import { ChecklistComponent } from './checklist/checklist.component';
 import { ChecklistSettingsComponent } from './checklist-settings/checklist-settings.component';
 import { SectionHeaderEditComponent } from './section-header-edit/section-header-edit.component';
+import { QuestionsSectionEditComponent } from './questions-section-edit/questions-section-edit.component';
 
 @NgModule({
   declarations: [
     ChecklistComponent, 
     ChecklistSettingsComponent,
-    SectionHeaderEditComponent
+    SectionHeaderEditComponent,
+    QuestionsSectionEditComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { SectionHeaderEditComponent } from './section-header-edit/section-header
   exports: [
     ChecklistComponent,
     ChecklistSettingsComponent,
-    SectionHeaderEditComponent
+    SectionHeaderEditComponent,
+    QuestionsSectionEditComponent
   ]
 })
 export class SectionsModule { }

@@ -23,6 +23,9 @@
 
                     <app-section-header-edit [sectionId]="section.id" *ngSwitchCase="sectionTypes.Header">
                     </app-section-header-edit>
+
+                    <app-questions-section-edit [sectionId]="section.id" *ngSwitchCase="sectionTypes.Questions">
+                    </app-questions-section-edit>
                 </ng-container>
 
                 <mat-action-row>
