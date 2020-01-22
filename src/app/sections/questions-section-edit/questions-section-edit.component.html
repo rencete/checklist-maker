@@ -15,8 +15,8 @@
 
 <p *ngIf="model.questions.length == 0">[ Add questions to display them here ]</p>
 
-<mat-list cdkDropList (cdkDropListDropped)="reorder($event)">
-    <mat-list-item cdkDrag *ngFor="let question of model.questions; let index=index; trackBy:trackByIndex">
+<mat-list class="questions-list" cdkDropList (cdkDropListDropped)="reorder($event)">
+    <mat-list-item cdkDrag cdkDragBoundary=".questions-list" *ngFor="let question of model.questions; let index=index; trackBy:trackByIndex">
         <mat-icon cdkDragHandle class="list__icon">drag_handle</mat-icon>
         <mat-form-field [floatLabel]="'never'" class="list__input">
             <input matInput type="text" placeholder="Question text" [(ngModel)]="model.questions[index].question">

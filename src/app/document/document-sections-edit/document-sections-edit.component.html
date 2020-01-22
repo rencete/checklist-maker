@@ -5,8 +5,9 @@
     </mat-card-subtitle>
 
     <mat-card-content>
-        <mat-accordion [multi]="true" cdkDropList (cdkDropListDropped)="reorder($event)">
-            <mat-expansion-panel cdkDrag *ngFor="let section of getSections();let index=index;trackBy:section?.id">
+        <mat-accordion [multi]="true" class="sections-list" cdkDropList (cdkDropListDropped)="reorder($event)">
+            <mat-expansion-panel cdkDragBoundary=".sections-list" cdkDrag
+                *ngFor="let section of getSections();let index=index;trackBy:section?.id">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
                         <mat-icon cdkDragHandle>drag_handle</mat-icon>
@@ -16,7 +17,7 @@
                         {{section.model?.title}}
                     </mat-panel-description>
                 </mat-expansion-panel-header>
-                
+
                 <ng-container [ngSwitch]="section.type">
                     <app-checklist-settings [sectionId]="section.id" *ngSwitchCase="sectionTypes.Checklist">
                     </app-checklist-settings>
