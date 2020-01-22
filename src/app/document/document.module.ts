@@ -7,15 +7,15 @@ import { AngularMaterialModule } from '../angular-material/angular-material.modu
 import { DocumentHeadComponent } from './document-head/document-head.component';
 import { SectionsModule } from '../sections/sections.module';
 import { DocumentMainComponent } from './document-main/document-main.component';
-import { DocumentSectionsListComponent } from './document-sections-list/document-sections-list.component';
-import { DeleteSectionConfirmDialogComponent } from './document-sections-list/delete-section-confirm-dialog.component';
+import { DocumentSectionsEditComponent } from './document-sections-edit/document-sections-edit.component';
+import { DeleteSectionConfirmDialogComponent } from './document-sections-edit/delete-section-confirm-dialog.component';
 
 
 @NgModule({
   declarations: [
     DocumentHeadComponent,
     DocumentMainComponent,
-    DocumentSectionsListComponent,
+    DocumentSectionsEditComponent,
     DeleteSectionConfirmDialogComponent
   ],
   imports: [

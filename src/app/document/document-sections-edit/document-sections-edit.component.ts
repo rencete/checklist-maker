@@ -8,11 +8,11 @@ import { DocumentModelService } from 'src/app/models/document-model.service';
 import { DeleteSectionConfirmDialogComponent } from './delete-section-confirm-dialog.component';
 
 @Component({
-  selector: 'app-document-sections-list',
-  templateUrl: './document-sections-list.component.html',
-  styleUrls: ['./document-sections-list.component.css']
+  selector: 'app-document-sections-edit',
+  templateUrl: './document-sections-edit.component.html',
+  styleUrls: ['./document-sections-edit.component.css']
 })
-export class DocumentSectionsListComponent implements OnInit {
+export class DocumentSectionsEditComponent implements OnInit {
   public sectionTypeValues: string[] = [];
   public sectionTypes = SectionTypes;
 
