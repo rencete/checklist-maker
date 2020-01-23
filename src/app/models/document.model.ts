@@ -1,7 +1,7 @@
 import { Section } from './section.interface';
 import { SectionTypes } from './section-types';
 import { ChecklistModel } from './checklist.model';
-import { SectionHeaderModel } from './section-header.model';
+import { HeaderSectionModel } from './header-section.model';
 import { QuestionsSectionModel } from './questions-section.model';
 
 export class DocumentModel {
@@ -30,7 +30,7 @@ export class DocumentModel {
                 break;
             }
             case SectionTypes.Header: {
-                model = new SectionHeaderModel();
+                model = new HeaderSectionModel();
                 break;
             }
             case SectionTypes.Questions: {

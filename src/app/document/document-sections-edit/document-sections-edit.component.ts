@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material';
 
 import { SectionTypes } from 'src/app/models/section-types';
 import { Section } from "src/app/models/section.interface";
-import { DocumentModelService } from 'src/app/models/document-model.service';
+import { DocumentRepository } from 'src/app/models/document-repository.service';
 import { DeleteSectionConfirmDialogComponent } from './delete-section-confirm-dialog.component';
 
 @Component({
@@ -16,7 +16,7 @@ export class DocumentSectionsEditComponent implements OnInit {
   public sectionTypeValues: string[] = [];
   public sectionTypes = SectionTypes;
 
-  constructor(private settings: DocumentModelService, private dialog: MatDialog) { }
+  constructor(private settings: DocumentRepository, private dialog: MatDialog) { }
 
   ngOnInit() {
     this.getSectionTypes();

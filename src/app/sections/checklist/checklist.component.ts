@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { ChecklistModel } from "../../models/checklist.model";
-import { DocumentModelService } from 'src/app/models/document-model.service';
+import { DocumentRepository } from 'src/app/models/document-repository.service';
 import { JsonPipe } from '@angular/common';
 
 @Component({
@@ -16,7 +16,7 @@ export class ChecklistComponent implements OnInit {
   public model: ChecklistModel;
 
   constructor(
-    public document: DocumentModelService
+    public document: DocumentRepository
   ) { }
 
   ngOnInit() {

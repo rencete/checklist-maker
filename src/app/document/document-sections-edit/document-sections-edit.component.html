@@ -19,11 +19,11 @@
                 </mat-expansion-panel-header>
 
                 <ng-container [ngSwitch]="section.type">
-                    <app-checklist-settings [sectionId]="section.id" *ngSwitchCase="sectionTypes.Checklist">
-                    </app-checklist-settings>
+                    <app-checklist-section-edit [sectionId]="section.id" *ngSwitchCase="sectionTypes.Checklist">
+                    </app-checklist-section-edit>
 
-                    <app-section-header-edit [sectionId]="section.id" *ngSwitchCase="sectionTypes.Header">
-                    </app-section-header-edit>
+                    <app-header-section-edit [sectionId]="section.id" *ngSwitchCase="sectionTypes.Header">
+                    </app-header-section-edit>
 
                     <app-questions-section-edit [sectionId]="section.id" *ngSwitchCase="sectionTypes.Questions">
                     </app-questions-section-edit>

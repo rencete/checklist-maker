@@ -1,4 +1,4 @@
-export class SectionHeaderModel {
+export class HeaderSectionModel {
     public title: string;
     
     constructor(title: string = "") {

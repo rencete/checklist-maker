@@ -4,7 +4,7 @@ import { DocumentModel } from './document.model';
 @Injectable({
   providedIn: 'root'
 })
-export class DocumentModelService {
+export class DocumentRepository {
   public model: DocumentModel;
 
   constructor() { }

@@ -6,15 +6,15 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AngularMaterialModule } from "../angular-material/angular-material.module";
 import { UtilitiesModule } from "../utilities/utilities.module";
 import { ChecklistComponent } from './checklist/checklist.component';
-import { ChecklistSettingsComponent } from './checklist-settings/checklist-settings.component';
-import { SectionHeaderEditComponent } from './section-header-edit/section-header-edit.component';
+import { ChecklistSectionEditComponent } from './checklist-section-edit/checklist-section-edit.component';
+import { HeaderSectionEditComponent } from './header-section-edit/header-section-edit.component';
 import { QuestionsSectionEditComponent } from './questions-section-edit/questions-section-edit.component';
 
 @NgModule({
   declarations: [
     ChecklistComponent, 
-    ChecklistSettingsComponent,
-    SectionHeaderEditComponent,
+    ChecklistSectionEditComponent,
+    HeaderSectionEditComponent,
     QuestionsSectionEditComponent
   ],
   imports: [
@@ -26,8 +26,8 @@ import { QuestionsSectionEditComponent } from './questions-section-edit/question
   ],
   exports: [
     ChecklistComponent,
-    ChecklistSettingsComponent,
-    SectionHeaderEditComponent,
+    ChecklistSectionEditComponent,
+    HeaderSectionEditComponent,
     QuestionsSectionEditComponent
   ]
 })

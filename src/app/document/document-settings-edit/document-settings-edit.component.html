@@ -1,0 +1,12 @@
+<div class="document-title">
+    <mat-form-field appearance="fill">
+        <mat-label>Document Title</mat-label>
+        <input matInput type="text" placeholder="Checklist Title" [(ngModel)]="title">
+    </mat-form-field>
+</div>
+
+<div>
+    <mat-slide-toggle [(ngModel)]="showPoints" *ngIf="editable">
+        Show Points
+    </mat-slide-toggle>
+</div>

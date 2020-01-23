@@ -1,21 +1,21 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { ChecklistModel, ChecklistItemModel, ChecklistPointTypes } from 'src/app/models/checklist.model';
-import { DocumentModelService } from 'src/app/models/document-model.service';
+import { DocumentRepository } from 'src/app/models/document-repository.service';
 
 @Component({
-  selector: 'app-checklist-settings',
-  templateUrl: './checklist-settings.component.html',
-  styleUrls: ['./checklist-settings.component.css']
+  selector: 'app-checklist-section-edit',
+  templateUrl: './checklist-section-edit.component.html',
+  styleUrls: ['./checklist-section-edit.component.css']
 })
-export class ChecklistSettingsComponent implements OnInit {
+export class ChecklistSectionEditComponent implements OnInit {
   @Input()
   sectionId: number;
 
   public model: ChecklistModel;
 
   constructor(
-    public document: DocumentModelService
+    public document: DocumentRepository
   ) { }
 
   ngOnInit() {

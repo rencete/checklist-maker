@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
-import { DocumentModelService } from 'src/app/models/document-model.service';
+import { DocumentRepository } from 'src/app/models/document-repository.service';
 import { QuestionsSectionModel, QuestionModel, QuestionBlankLength } from 'src/app/models/questions-section.model';
 
 @Component({
@@ -16,7 +16,7 @@ export class QuestionsSectionEditComponent implements OnInit {
   public model: QuestionsSectionModel;
 
   constructor(
-    public document: DocumentModelService
+    public document: DocumentRepository
   ) { }
 
   ngOnInit() {
