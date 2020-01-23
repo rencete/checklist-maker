@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { ChecklistModel, ChecklistItemModel, ChecklistPointTypes } from 'src/app/models/checklist.model';
+import { ChecklistSectionModel, ChecklistItemModel, ChecklistPointTypes } from 'src/app/models/section-models/checklist-section.model';
 import { DocumentRepository } from 'src/app/models/document-repository.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class ChecklistSectionEditComponent implements OnInit {
   @Input()
   sectionId: number;
 
-  public model: ChecklistModel;
+  public model: ChecklistSectionModel;
 
   constructor(
     public document: DocumentRepository
@@ -20,7 +20,7 @@ export class ChecklistSectionEditComponent implements OnInit {
 
   ngOnInit() {
     let section = this.document.model.getSection(this.sectionId);
-    this.model = section ? section.model as ChecklistModel : undefined;
+    this.model = section ? section.model as ChecklistSectionModel : undefined;
   }
 
   addItem() {

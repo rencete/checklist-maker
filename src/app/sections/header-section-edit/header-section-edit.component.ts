@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { DocumentRepository } from 'src/app/models/document-repository.service';
-import { HeaderSectionModel } from 'src/app/models/header-section.model';
+import { HeaderSectionModel } from 'src/app/models/section-models/header-section.model';
 
 @Component({
   selector: 'app-header-section-edit',

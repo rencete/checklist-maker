@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { ChecklistModel } from "../../models/checklist.model";
+import { ChecklistSectionModel } from "../../models/section-models/checklist-section.model";
 import { DocumentRepository } from 'src/app/models/document-repository.service';
 import { JsonPipe } from '@angular/common';
 
@@ -13,7 +13,7 @@ export class ChecklistComponent implements OnInit {
   @Input()
   sectionId: number;
 
-  public model: ChecklistModel;
+  public model: ChecklistSectionModel;
 
   constructor(
     public document: DocumentRepository
@@ -21,6 +21,6 @@ export class ChecklistComponent implements OnInit {
 
   ngOnInit() {
     let section = this.document.model.getSection(this.sectionId);
-    this.model = section ? section.model as ChecklistModel : undefined;
+    this.model = section ? section.model as ChecklistSectionModel : undefined;
   }
 }

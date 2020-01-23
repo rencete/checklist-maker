@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 import { DocumentRepository } from 'src/app/models/document-repository.service';
-import { QuestionsSectionModel, QuestionModel, QuestionBlankLength } from 'src/app/models/questions-section.model';
+import { QuestionsSectionModel, QuestionModel, QuestionBlankLength } from 'src/app/models/section-models/questions-section.model';
 
 @Component({
   selector: 'app-questions-section-edit',

@@ -1,8 +1,8 @@
 import { Section } from './section.interface';
 import { SectionTypes } from './section-types';
-import { ChecklistModel } from './checklist.model';
-import { HeaderSectionModel } from './header-section.model';
-import { QuestionsSectionModel } from './questions-section.model';
+import { ChecklistSectionModel } from './section-models/checklist-section.model';
+import { HeaderSectionModel } from './section-models/header-section.model';
+import { QuestionsSectionModel } from './section-models/questions-section.model';
 
 export class DocumentModel {
     public title: string = "";
@@ -26,7 +26,7 @@ export class DocumentModel {
         var model;
         switch(type) {
             case SectionTypes.Checklist: {
-                model = new ChecklistModel();
+                model = new ChecklistSectionModel();
                 break;
             }
             case SectionTypes.Header: {

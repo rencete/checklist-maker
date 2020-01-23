@@ -1,4 +1,4 @@
-export class ChecklistModel {
+export class ChecklistSectionModel {
     public title: string;
     public items: ChecklistItemModel[] = [];
     public columns: number = 1;
