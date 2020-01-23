@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { DocumentRepository } from 'src/app/models/document-repository.service';
 import { DocumentModel } from 'src/app/models/document.model';
+import { DocumentModelService } from '../document-model.service';
 
 @Component({
   selector: 'app-document-settings-edit',
@@ -10,33 +10,22 @@ import { DocumentModel } from 'src/app/models/document.model';
 })
 export class DocumentSettingsEditComponent {
 
-  constructor(private repository: DocumentRepository) { 
-    //TODO: Delete this (temporary)
-    let model = new DocumentModel("Test Checklist");
-    this.repository.model = model;
+  constructor(private document: DocumentModelService) { 
   }
 
   get title(): string {
-    return this.repository.model.title;
+    return this.document.model.title;
   }
   
   set title(val: string) {
-    this.repository.model.title = val;
-  }
-
-  get editable(): boolean {
-    return this.repository.model.editable;
-  }
-
-  set editable(val: boolean) {
-    this.repository.model.editable = val;
+    this.document.model.title = val;
   }
 
   get showPoints(): boolean {
-    return this.repository.model.showPoints;
+    return this.document.model.showPoints;
   }
 
   set showPoints(val: boolean) {
-    this.repository.model.showPoints = val;
+    this.document.model.showPoints = val;
   }
 }

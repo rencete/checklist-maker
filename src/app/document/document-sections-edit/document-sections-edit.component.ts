@@ -4,8 +4,8 @@ import { MatDialog } from '@angular/material';
 
 import { SectionTypes } from 'src/app/models/section-types';
 import { Section } from "src/app/models/section.interface";
-import { DocumentRepository } from 'src/app/models/document-repository.service';
 import { DeleteSectionConfirmDialogComponent } from './delete-section-confirm-dialog.component';
+import { DocumentModelService } from '../document-model.service';
 
 @Component({
   selector: 'app-document-sections-edit',
@@ -16,7 +16,7 @@ export class DocumentSectionsEditComponent implements OnInit {
   public sectionTypeValues: string[] = [];
   public sectionTypes = SectionTypes;
 
-  constructor(private settings: DocumentRepository, private dialog: MatDialog) { }
+  constructor(private document: DocumentModelService, private dialog: MatDialog) { }
 
   ngOnInit() {
     this.getSectionTypes();
@@ -31,15 +31,15 @@ export class DocumentSectionsEditComponent implements OnInit {
   }
 
   addSection(type: SectionTypes) {
-    this.settings.model.addSectionOfType(type);
+    this.document.addSectionOfType(type);
   }
 
   getSections(): Section[] {
-    return this.settings.model.sections;
+    return this.document.model.sections;
   }
 
   reorder(event: CdkDragDrop<Section[]>) {
-    moveItemInArray(this.settings.model.sections, event.previousIndex, event.currentIndex);
+    moveItemInArray(this.document.model.sections, event.previousIndex, event.currentIndex);
   }
 
   deleteSection(index: number) {
@@ -49,7 +49,7 @@ export class DocumentSectionsEditComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
-        this.settings.model.sections.splice(index, 1);
+        this.document.model.sections.splice(index, 1);
       }
     });
   }

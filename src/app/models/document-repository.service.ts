@@ -1,11 +1,21 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
+
 import { DocumentModel } from './document.model';
+import { DocumentDataSource } from './document-datasource.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DocumentRepository {
-  public model: DocumentModel;
+  public documents: DocumentModel[] = [];
 
-  constructor() { }
+  constructor(ds: DocumentDataSource) { 
+    ds.getDocuments().subscribe(documents => {
+      this.documents = documents;
+    })
+  }
+
+  getDocument(id: number): DocumentModel {
+    return this.documents.find(doc => doc.id === id);
+  }
 }

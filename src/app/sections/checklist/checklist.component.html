@@ -18,9 +18,6 @@
                         </mat-form-field>
                     </div>
                 </ng-template>
-                <div *ngIf="!document.model.editable;else checklistValueInputs">
-                    <span>{{item}}</span>
-                </div>
     
                 <div *ngIf="document.model.showPoints" class="points-area">
                     <div class="points-area__blank"></div>

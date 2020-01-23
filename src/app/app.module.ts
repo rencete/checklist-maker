@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { DocumentModule } from './document/document.module';
 
@@ -13,6 +14,7 @@ import { DocumentModule } from './document/document.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     DocumentModule
   ],
   providers: [],

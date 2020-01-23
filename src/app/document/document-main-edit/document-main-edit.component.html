@@ -1,3 +1,5 @@
-<app-document-settings-edit></app-document-settings-edit>
-
-<app-document-sections-edit></app-document-sections-edit>
+<div *ngIf="document.model">
+    <app-document-settings-edit></app-document-settings-edit>
+    
+    <app-document-sections-edit></app-document-sections-edit>
+</div>

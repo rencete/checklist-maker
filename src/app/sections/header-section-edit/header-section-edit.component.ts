@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { DocumentRepository } from 'src/app/models/document-repository.service';
 import { HeaderSectionModel } from 'src/app/models/section-models/header-section.model';
+import { DocumentModelService } from 'src/app/document/document-model.service';
 
 @Component({
   selector: 'app-header-section-edit',
@@ -15,11 +15,11 @@ export class HeaderSectionEditComponent implements OnInit {
   public model: HeaderSectionModel;
 
   constructor(
-    public document: DocumentRepository
+    public document: DocumentModelService
   ) { }
 
   ngOnInit() {
-    let section = this.document.model.getSection(this.sectionId);
+    let section = this.document.getSection(this.sectionId);
     this.model = section ? section.model as HeaderSectionModel : undefined;
   }
 }

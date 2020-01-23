@@ -4,7 +4,6 @@ module.exports = function () {
             {
                 id: 1,
                 "title": "Unit 9 Composition Checklist",
-                "editable": true,
                 "showPoints": true,
                 "sections": [
                     {

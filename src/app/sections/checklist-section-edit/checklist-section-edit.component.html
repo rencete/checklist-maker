@@ -6,6 +6,10 @@
     </button>
 </mat-form-field>
 
+<mat-slide-toggle [(ngModel)]="model.showTitle">
+    Display Title
+</mat-slide-toggle>
+
 <mat-form-field appearance="outline" class="number-input">
     <mat-label>Checkboxes</mat-label>
     <input type="number" matInput [(ngModel)]="model.columns" step="1" min="1" max="10">
