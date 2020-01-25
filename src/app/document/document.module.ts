@@ -9,6 +9,8 @@ import { SectionsModule } from '../sections/sections.module';
 import { DocumentMainEditComponent } from './document-main-edit/document-main-edit.component';
 import { DocumentSectionsEditComponent } from './document-sections-edit/document-sections-edit.component';
 import { DeleteSectionConfirmDialogComponent } from './document-sections-edit/delete-section-confirm-dialog.component';
+import { DocumentsListViewComponent } from './documents-list-view/documents-list-view.component';
+import { DocumentsListViewDataSource } from './documents-list-view/documents-list-view-datasource';
 
 
 @NgModule({
@@ -16,7 +18,8 @@ import { DeleteSectionConfirmDialogComponent } from './document-sections-edit/de
     DocumentSettingsEditComponent,
     DocumentMainEditComponent,
     DocumentSectionsEditComponent,
-    DeleteSectionConfirmDialogComponent
+    DeleteSectionConfirmDialogComponent,
+    DocumentsListViewComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +29,11 @@ import { DeleteSectionConfirmDialogComponent } from './document-sections-edit/de
     SectionsModule
   ],
   exports: [
-    DocumentMainEditComponent
+    DocumentMainEditComponent,
+    DocumentsListViewComponent
+  ],
+  providers: [
+    DocumentsListViewDataSource
   ],
   entryComponents: [
     DeleteSectionConfirmDialogComponent
