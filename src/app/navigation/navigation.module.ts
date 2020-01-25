@@ -5,6 +5,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
+import { routing } from "../app.routing";
 import { MainNavigationComponent } from './main-navigation/main-navigation.component';
 import { DocumentModule } from '../document/document.module';
 
@@ -18,6 +19,7 @@ import { DocumentModule } from '../document/document.module';
     LayoutModule,
     HttpClientModule,
     AngularMaterialModule,
+    routing,
     DocumentModule
   ],
   bootstrap: [
