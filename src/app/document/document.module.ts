@@ -11,6 +11,7 @@ import { DocumentSectionsEditComponent } from './document-sections-edit/document
 import { DeleteSectionConfirmDialogComponent } from './document-sections-edit/delete-section-confirm-dialog.component';
 import { DocumentsListViewComponent } from './documents-list-view/documents-list-view.component';
 import { DocumentsListViewDataSource } from './documents-list-view/documents-list-view-datasource';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { DocumentsListViewDataSource } from './documents-list-view/documents-lis
     FormsModule,
     DragDropModule,
     AngularMaterialModule,
+    RouterModule,
     SectionsModule
   ],
   exports: [
