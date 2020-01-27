@@ -8,7 +8,10 @@ import { ChecklistSectionViewDataSource } from './checklist-section-view.datasou
 @Component({
   selector: 'app-checklist-section-view',
   templateUrl: './checklist-section-view.component.html',
-  styleUrls: ['./checklist-section-view.component.css']
+  styleUrls: ['./checklist-section-view.component.css'],
+  providers: [
+    ChecklistSectionViewDataSource
+  ],
 })
 export class ChecklistSectionViewComponent
   implements OnInit 

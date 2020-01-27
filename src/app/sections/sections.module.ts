@@ -27,9 +27,6 @@ import { QuestionsSectionViewComponent } from './questions-section-view/question
     AngularMaterialModule,
     UtilitiesModule
   ],
-  providers: [
-    ChecklistSectionViewDataSource
-  ],
   exports: [
     ChecklistSectionEditComponent,
     HeaderSectionEditComponent,
