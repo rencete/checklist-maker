@@ -1,7 +1,12 @@
 <div class="section checklist-section">
-    <h4 *ngIf="model.showTitle">{{model.title}}</h4>
+    <div class="checklist-header-toolbar" *ngIf="model.showTitle">
+        <div class="checklist-title">{{model.title}}</div>
+        <div class="checklist-title--points" *ngIf="model.pointsType==0">
+            {{model.points}} pts each
+        </div>
+    </div>    
 
-    <table mat-table class="mat-elevation-z8" [dataSource]='dataSource'>
+    <table mat-table [dataSource]='dataSource'>
         <ng-container matColumnDef="checkbox">
             <th mat-header-cell *matHeaderCellDef>¶</th>
             <td mat-cell *matCellDef="let element">
@@ -30,7 +35,7 @@
             </td>
         </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 </div>

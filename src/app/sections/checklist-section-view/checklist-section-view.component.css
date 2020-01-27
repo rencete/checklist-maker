@@ -3,3 +3,12 @@
     width: 36px;
     border-bottom: 2px solid rgba(0, 0, 0, 0.42);
 }
+
+.checklist-header-toolbar {
+    display: flex;
+    flex-direction: row;
+}
+
+.checklist-title--points {
+    margin-left: auto;
+}
