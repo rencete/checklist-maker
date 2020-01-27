@@ -9,8 +9,8 @@ import { ChecklistSectionViewComponent } from './checklist-section-view/checklis
 import { ChecklistSectionEditComponent } from './checklist-section-edit/checklist-section-edit.component';
 import { HeaderSectionEditComponent } from './header-section-edit/header-section-edit.component';
 import { QuestionsSectionEditComponent } from './questions-section-edit/questions-section-edit.component';
-import { ChecklistSectionViewDataSource } from './checklist-section-view/checklist-section-view.datasource';
 import { QuestionsSectionViewComponent } from './questions-section-view/questions-section-view.component';
+import { HeaderSectionViewComponent } from './header-section-view/header-section-view.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { QuestionsSectionViewComponent } from './questions-section-view/question
     HeaderSectionEditComponent,
     QuestionsSectionEditComponent,
     ChecklistSectionViewComponent,
-    QuestionsSectionViewComponent
+    QuestionsSectionViewComponent,
+    HeaderSectionViewComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +33,8 @@ import { QuestionsSectionViewComponent } from './questions-section-view/question
     HeaderSectionEditComponent,
     QuestionsSectionEditComponent,
     ChecklistSectionViewComponent,
-    QuestionsSectionViewComponent
+    QuestionsSectionViewComponent,
+    HeaderSectionViewComponent
   ]
 })
 export class SectionsModule { }

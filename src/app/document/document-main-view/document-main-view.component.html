@@ -6,8 +6,8 @@
             <app-checklist-section-view [sectionId]="section.id" *ngSwitchCase="sectionTypes.Checklist">
             </app-checklist-section-view>
     
-            <!-- <app-header-section-edit [sectionId]="section.id" *ngSwitchCase="sectionTypes.Header">
-            </app-header-section-edit> -->
+            <app-header-section-view [sectionId]="section.id" *ngSwitchCase="sectionTypes.Header">
+            </app-header-section-view>
     
             <app-questions-section-view [sectionId]="section.id" *ngSwitchCase="sectionTypes.Questions">
             </app-questions-section-view>
