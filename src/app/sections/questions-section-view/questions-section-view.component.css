@@ -1,0 +1,24 @@
+.blank-question {
+    display: inline-block;
+}
+
+.qtn-blank {
+    display: inline-block;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.42);
+}
+
+.qtn-blank--short {
+    width: 64px;
+}
+
+.qtn-blank--medium {
+    width: 128px;
+}
+
+.qtn-blank--long {
+    width: 256px;
+}
+
+.qtn-blank--full {
+    width: 312px;
+}

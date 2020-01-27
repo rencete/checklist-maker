@@ -1,0 +1,9 @@
+<div class="blank-question" *ngFor="let item of model.questions">
+    <span>{{item.question}}</span>
+    <ng-container [ngSwitch]="item.blankLength">
+        <div *ngSwitchCase="0" class="qtn-blank qtn-blank--short"></div>
+        <div *ngSwitchCase="1" class="qtn-blank qtn-blank--medium"></div>
+        <div *ngSwitchCase="2" class="qtn-blank qtn-blank--long"></div>
+        <div *ngSwitchCase="3" class="qtn-blank qtn-blank--full"></div>
+    </ng-container>
+</div>
