@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
+import { RouterModule } from '@angular/router';
 import { DocumentSettingsEditComponent } from './document-settings-edit/document-settings-edit.component';
 import { SectionsModule } from '../sections/sections.module';
 import { DocumentMainEditComponent } from './document-main-edit/document-main-edit.component';
@@ -11,7 +12,7 @@ import { DocumentSectionsEditComponent } from './document-sections-edit/document
 import { DeleteSectionConfirmDialogComponent } from './document-sections-edit/delete-section-confirm-dialog.component';
 import { DocumentsListViewComponent } from './documents-list-view/documents-list-view.component';
 import { DocumentsListViewDataSource } from './documents-list-view/documents-list-view-datasource';
-import { RouterModule } from '@angular/router';
+import { DocumentMainViewComponent } from './document-main-view/document-main-view.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { RouterModule } from '@angular/router';
     DocumentMainEditComponent,
     DocumentSectionsEditComponent,
     DeleteSectionConfirmDialogComponent,
-    DocumentsListViewComponent
+    DocumentsListViewComponent,
+    DocumentMainViewComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     DocumentMainEditComponent,
-    DocumentsListViewComponent
+    DocumentsListViewComponent,
+    DocumentMainViewComponent
   ],
   providers: [
     DocumentsListViewDataSource

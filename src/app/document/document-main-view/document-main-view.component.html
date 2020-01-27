@@ -1,0 +1,16 @@
+<div *ngIf="document?.model">
+    <h3>{{this.document.model.title}}</h3>
+    
+    <ng-container *ngFor="let section of document.model.sections">
+        <ng-container [ngSwitch]="section.type">
+            <app-checklist-section-view [sectionId]="section.id" *ngSwitchCase="sectionTypes.Checklist">
+            </app-checklist-section-view>
+    
+            <!-- <app-header-section-edit [sectionId]="section.id" *ngSwitchCase="sectionTypes.Header">
+            </app-header-section-edit>
+    
+            <app-questions-section-edit [sectionId]="section.id" *ngSwitchCase="sectionTypes.Questions">
+            </app-questions-section-edit> -->
+        </ng-container>
+    </ng-container>
+</div>
