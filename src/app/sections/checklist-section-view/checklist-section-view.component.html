@@ -1,10 +1,16 @@
 <div class="section checklist-section">
     <div class="checklist-header-toolbar" *ngIf="model.showTitle">
         <div class="checklist-title">{{model.title}}</div>
-        <div class="checklist-title--points" *ngIf="model.pointsType==0">
-            {{model.points}} pts each
-        </div>
-    </div>    
+        <ng-container [ngSwitch]="model.pointsType">
+            <div class="checklist-title--points" *ngSwitchCase="0">
+                {{model.points}} pts each
+            </div>
+            <div class="checklist-title--points" *ngSwitchCase="2">
+                <div class="points-area__blank"></div>
+                {{model.points==0? "" : model.points}} pts
+            </div>
+        </ng-container>
+    </div>
 
     <table mat-table [dataSource]='dataSource'>
         <ng-container matColumnDef="checkbox">
@@ -29,7 +35,7 @@
                     </span>
                     <span *ngSwitchCase="1">
                         <div class="points-area__blank"></div>
-                        {{element.points}} pts
+                        {{element.points==0? "" : element.points}} pts
                     </span>
                 </ng-container>
             </td>
