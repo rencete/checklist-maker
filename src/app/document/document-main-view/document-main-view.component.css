@@ -12,3 +12,14 @@ app-checklist-section-view:not(:last-child) {
     height: 24px;
     width: 100%;
 }
+
+.total-points-area {
+    float: right;
+    margin-right: 24px;
+}
+
+.points-area__blank {
+    display: inline-block;
+    width: 72px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.42);
+}

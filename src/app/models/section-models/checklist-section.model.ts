@@ -6,10 +6,6 @@ export class ChecklistSectionModel {
     public pointsType: ChecklistPointTypes = ChecklistPointTypes.perCheckbox;
     public showTitle: boolean = true;
 
-    public get length(): number {
-        return this.items.length;
-    }
-
     constructor(title: string = "") {
         this.title = title;
     }
