@@ -29,11 +29,11 @@
             <th mat-header-cell *matHeaderCellDef>Points</th>
             <td mat-cell *matCellDef="let element">
                 <ng-container [ngSwitch]="model.pointsType">
-                    <span *ngSwitchCase="0">
+                    <span *ngSwitchCase="0" class="points-area">
                         <div class="points-area__blank"></div>
                         {{model.points * model.columns}} pts
                     </span>
-                    <span *ngSwitchCase="1">
+                    <span *ngSwitchCase="1" class="points-area">
                         <div class="points-area__blank"></div>
                         {{element.points==0? "" : element.points}} pts
                     </span>

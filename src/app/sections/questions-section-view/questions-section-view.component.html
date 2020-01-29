@@ -1,9 +1,22 @@
-<div class="blank-question" *ngFor="let item of model.questions">
-    <span>{{item.question}}</span>
-    <ng-container [ngSwitch]="item.blankLength">
-        <div *ngSwitchCase="0" class="qtn-blank qtn-blank--short"></div>
-        <div *ngSwitchCase="1" class="qtn-blank qtn-blank--medium"></div>
-        <div *ngSwitchCase="2" class="qtn-blank qtn-blank--long"></div>
-        <div *ngSwitchCase="3" class="qtn-blank qtn-blank--full"></div>
+<div class="question-line">
+    <ng-container *ngFor="let item of model.questions">
+        <ng-container [ngSwitch]="item.blankLength">
+            <div *ngSwitchCase="0" class="question question--short">
+                <span>{{item.question}}</span>
+                <div class="qtn-blank qtn-blank--short"></div>
+            </div>
+            <div *ngSwitchCase="1" class="question question--medium">
+                <span>{{item.question}}</span>
+                <div class="qtn-blank qtn-blank--medium"></div>
+            </div>
+            <div *ngSwitchCase="2" class="question question--long">
+                <span>{{item.question}}</span>
+                <div class="qtn-blank qtn-blank--long"></div>
+            </div>
+            <div *ngSwitchCase="3" class="question question--full">
+                <span class="question-qtn--full">{{item.question}}</span>
+                <div class="qtn-blank qtn-blank--full"></div>
+            </div>
+        </ng-container>
     </ng-container>
 </div>

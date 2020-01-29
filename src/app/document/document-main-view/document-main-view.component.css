@@ -1,0 +1,14 @@
+.main-document-view {
+    width: 800px;
+    background-color: white;
+    margin: 0 auto;
+}
+
+app-checklist-section-view:not(:last-child) {
+    margin-bottom: 24px;
+}
+
+.spacer {
+    height: 24px;
+    width: 100%;
+}

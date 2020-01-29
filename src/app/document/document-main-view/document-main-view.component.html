@@ -1,16 +1,24 @@
 <div *ngIf="document?.model">
     <h3>{{this.document.model.title}}</h3>
     
-    <ng-container *ngFor="let section of document.model.sections">
-        <ng-container [ngSwitch]="section.type">
-            <app-checklist-section-view [sectionId]="section.id" *ngSwitchCase="sectionTypes.Checklist">
-            </app-checklist-section-view>
-    
-            <app-header-section-view [sectionId]="section.id" *ngSwitchCase="sectionTypes.Header">
-            </app-header-section-view>
-    
-            <app-questions-section-view [sectionId]="section.id" *ngSwitchCase="sectionTypes.Questions">
-            </app-questions-section-view>
+    <div class="main-document-view">
+        <ng-container *ngFor="let section of document.model.sections; let last=last">
+            <ng-container [ngSwitch]="section.type">
+                <ng-container *ngSwitchCase="sectionTypes.Checklist">
+                    <app-checklist-section-view [sectionId]="section.id">
+                    </app-checklist-section-view>
+                    <div class="spacer"></div>
+                </ng-container>
+        
+                <app-header-section-view [sectionId]="section.id" *ngSwitchCase="sectionTypes.Header">
+                </app-header-section-view>
+        
+                <ng-container *ngSwitchCase="sectionTypes.Questions">
+                    <app-questions-section-view [sectionId]="section.id">
+                    </app-questions-section-view>
+                    <div class="spacer"></div>
+                </ng-container>
+            </ng-container>
         </ng-container>
-    </ng-container>
+    </div>
 </div>
