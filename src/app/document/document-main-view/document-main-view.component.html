@@ -2,27 +2,29 @@
     <h3>{{this.document.model.title}}</h3>
 
     <div class="main-document-view">
-        <ng-container *ngFor="let section of document.model.sections; let last=last">
-            <ng-container [ngSwitch]="section.type">
-                <ng-container *ngSwitchCase="sectionTypes.Checklist">
-                    <app-checklist-section-view [sectionId]="section.id">
-                    </app-checklist-section-view>
-                    <div class="spacer"></div>
-                </ng-container>
-
-                <app-header-section-view [sectionId]="section.id" *ngSwitchCase="sectionTypes.Header">
-                </app-header-section-view>
-
-                <ng-container *ngSwitchCase="sectionTypes.Questions">
-                    <app-questions-section-view [sectionId]="section.id">
-                    </app-questions-section-view>
-                    <div class="spacer"></div>
+        <div class="main-document">
+            <ng-container *ngFor="let section of document.model.sections; let last=last">
+                <ng-container [ngSwitch]="section.type">
+                    <ng-container *ngSwitchCase="sectionTypes.Checklist">
+                        <app-checklist-section-view [sectionId]="section.id">
+                        </app-checklist-section-view>
+                        <div class="spacer"></div>
+                    </ng-container>
+    
+                    <app-header-section-view [sectionId]="section.id" *ngSwitchCase="sectionTypes.Header">
+                    </app-header-section-view>
+    
+                    <ng-container *ngSwitchCase="sectionTypes.Questions">
+                        <app-questions-section-view [sectionId]="section.id">
+                        </app-questions-section-view>
+                        <div class="spacer"></div>
+                    </ng-container>
                 </ng-container>
             </ng-container>
-        </ng-container>
-
-        <div class="total-points-area" *ngIf="document?.model.showPoints">
-            <strong>Total: <div class="points-area__blank"></div> / {{getTotalPoints()}} pts</strong>
+    
+            <div class="total-points-area" *ngIf="document?.model.showPoints">
+                <strong>Total: <div class="points-area__blank"></div> / {{getTotalPoints()}} pts</strong>
+            </div>
         </div>
     </div>
 </div>

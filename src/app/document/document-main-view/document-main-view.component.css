@@ -1,7 +1,20 @@
-.main-document-view {
+h3 {
+    margin-left: 16px;
+}
+
+.main-document {
     width: 800px;
     background-color: white;
     margin: 0 auto;
+}
+
+@media (max-width: 799px) {
+    .main-document-view {
+        width: 90%;
+        margin: 0 auto;
+        overflow-x: scroll;
+        overflow-y: scroll;
+    }
 }
 
 app-checklist-section-view:not(:last-child) {
