@@ -6,6 +6,7 @@ import { SectionTypes } from "src/app/models/section-types";;
 import { DocumentRepository } from 'src/app/models/document-repository.service';
 import { DocumentModelService } from '../document-model.service';
 import { ChecklistSectionModel, ChecklistPointTypes } from 'src/app/models/section-models/checklist-section.model';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-document-main-view',
@@ -20,7 +21,8 @@ export class DocumentMainViewComponent implements OnDestroy {
   constructor(
     public repository: DocumentRepository,
     public document: DocumentModelService,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private location: Location
   ) {
     this.documentId = Number.parseInt(this.activeRoute.snapshot.params["id"])
     this.sub = this.repository.documentsUpdated$.subscribe(docs => {
@@ -52,5 +54,9 @@ export class DocumentMainViewComponent implements OnDestroy {
       })
     }
     return total;
+  }
+
+  goBackPreviousPage() {
+    this.location.back();
   }
 }

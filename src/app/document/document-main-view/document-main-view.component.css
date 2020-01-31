@@ -1,19 +1,47 @@
-h3 {
-    margin-left: 16px;
+.document-title-area {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.document-title-area > :first-child {
+    margin-right: 24px;
+}
+
+.bottom-row {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.navigation-button-area {
+    flex-flow: row nowrap;
+}
+
+.navigation-button-area > button {
+    flex: 0 0 auto;
+    margin: 12px 0px;
+    height: 36px;
+}
+
+.navigation-button-area > button:not(:last-child) {
+    margin-right: 24px;
 }
 
 .main-document {
     width: 800px;
     background-color: white;
-    margin: 0 auto;
 }
 
-@media (max-width: 799px) {
+.main-document-view {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+@media (max-width: 1016px) {
     .main-document-view {
-        width: 90%;
-        margin: 0 auto;
         overflow-x: scroll;
-        overflow-y: scroll;
     }
 }
 
@@ -27,8 +55,16 @@ app-checklist-section-view:not(:last-child) {
 }
 
 .total-points-area {
-    float: right;
-    margin-right: 24px;
+    padding-bottom: 32px;
+}
+
+.align-right {
+    display: flex;
+    padding-right: 24px;
+}
+
+.align-right > :first-child {
+    margin-left: auto;
 }
 
 .points-area__blank {
