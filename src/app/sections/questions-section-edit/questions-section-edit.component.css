@@ -1,0 +1,11 @@
+.blank-length-select {
+    width: 100px;
+}
+
+.question-line-item > *:not(:first-child) {
+    margin-left: 8px;
+}
+
+.mat-list-item {
+    height:auto;
+}

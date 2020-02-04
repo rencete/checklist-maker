@@ -1,0 +1,8 @@
+.navigation-area {
+    padding: 16px;
+}
+
+.navigation-area a {
+    display: block;
+    padding: 12px 0;
+}

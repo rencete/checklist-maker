@@ -1,0 +1,7 @@
+.document-settings {
+    padding: 16px;
+}
+
+.document-settings > * {
+    display: block;
+}

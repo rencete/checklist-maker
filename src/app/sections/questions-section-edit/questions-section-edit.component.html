@@ -1,6 +1,7 @@
 <mat-form-field appearance="fill" class="title-input">
     <mat-label>Section name</mat-label>
-    <input matInput type="text" [(ngModel)]="model.title">
+    <textarea matInput type="text" [(ngModel)]="model.title" cdkTextareaAutosize cdkAutosizeMinRows="1"
+        cdkAutosizeMaxRows="5"></textarea>
     <button mat-button *ngIf="model.title" matSuffix mat-icon-button aria-label="Clear" (click)="model.title=''">
         <mat-icon>close</mat-icon>
     </button>
@@ -16,33 +17,36 @@
 <p *ngIf="model.questions.length == 0">[ Add questions to display them here ]</p>
 
 <mat-list class="questions-list" cdkDropList (cdkDropListDropped)="reorder($event)">
-    <mat-list-item cdkDrag cdkDragBoundary=".questions-list" *ngFor="let question of model.questions; let index=index; trackBy:trackByIndex">
-        <mat-icon cdkDragHandle class="list__icon">drag_handle</mat-icon>
-        <mat-form-field [floatLabel]="'never'" class="list__input">
-            <input matInput type="text" placeholder="Question text" [(ngModel)]="model.questions[index].question">
-            <button mat-button *ngIf="model.questions[index].question" matSuffix mat-icon-button aria-label="Clear"
-                (click)="model.questions[index].question=''">
-                <mat-icon>close</mat-icon>
+    <mat-list-item cdkDrag cdkDragBoundary=".questions-list"
+        *ngFor="let question of model.questions; let index=index; trackBy:trackByIndex">
+        <div class="question-line-item">
+            <mat-icon cdkDragHandle class="list__icon">drag_handle</mat-icon>
+            <mat-form-field [floatLabel]="'never'" class="list__input">
+                <input matInput type="text" placeholder="Question text" [(ngModel)]="model.questions[index].question">
+                <button mat-button *ngIf="model.questions[index].question" matSuffix mat-icon-button aria-label="Clear"
+                    (click)="model.questions[index].question=''">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+    
+            <mat-form-field class="blank-length-select">
+                <mat-label>Blank length</mat-label>
+                <mat-select [(ngModel)]="model.questions[index].blankLength">
+                    <mat-option [value]="0">Short</mat-option>
+                    <mat-option [value]="1">Medium</mat-option>
+                    <mat-option [value]="2">Long</mat-option>
+                    <mat-option [value]="3">Full</mat-option>
+                </mat-select>
+            </mat-form-field>
+    
+            <!-- <span>Blank Length:</span>
+            <mat-slider [min]="0" [max]="3" [step]="1"
+                [(ngModel)]="model.questions[index].blankLength"
+                thumbLabel [displayWith]="formatLabel"></mat-slider> -->
+    
+            <button mat-button mat-icon-button aria-label="Delete" (click)="deleteQuestion(index)">
+                <mat-icon>delete</mat-icon>
             </button>
-        </mat-form-field>
-
-        <mat-form-field>
-            <mat-label>Blank length</mat-label>
-            <mat-select [(ngModel)]="model.questions[index].blankLength">
-                <mat-option [value]="0">Short</mat-option>
-                <mat-option [value]="1">Medium</mat-option>
-                <mat-option [value]="2">Long</mat-option>
-                <mat-option [value]="3">Full</mat-option>
-            </mat-select>
-        </mat-form-field>
-
-        <!-- <span>Blank Length:</span>
-        <mat-slider [min]="0" [max]="3" [step]="1"
-            [(ngModel)]="model.questions[index].blankLength"
-            thumbLabel [displayWith]="formatLabel"></mat-slider> -->
-
-        <button mat-button mat-icon-button aria-label="Delete" (click)="deleteQuestion(index)">
-            <mat-icon>delete</mat-icon>
-        </button>
+        </div>
     </mat-list-item>
 </mat-list>

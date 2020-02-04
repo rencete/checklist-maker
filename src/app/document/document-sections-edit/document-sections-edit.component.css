@@ -1,5 +1,6 @@
-.mat-expansion-panel-header-description, .mat-expansion-panel-header-title {
+.mat-expansion-panel-header-title {
     align-items: center;
+    white-space: nowrap;
 }
 
 mat-panel-title > mat-icon {

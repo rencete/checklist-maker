@@ -1,11 +1,9 @@
-<div class="document-title">
+<div class="document-settings">
     <mat-form-field appearance="fill">
         <mat-label>Document Title</mat-label>
-        <input matInput type="text" placeholder="Checklist Title" [(ngModel)]="title">
+        <textarea matInput type="text" [(ngModel)]="title" cdkTextareaAutosize cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="3"></textarea>
     </mat-form-field>
-</div>
-
-<div>
     <mat-slide-toggle [(ngModel)]="showPoints">
         Show Points
     </mat-slide-toggle>

@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { DocumentRepository } from 'src/app/models/document-repository.service';
 import { SectionTypes } from "src/app/models/section-types";

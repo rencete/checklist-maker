@@ -1,5 +1,12 @@
 <div *ngIf="document.model">
-    <app-document-settings-edit></app-document-settings-edit>
+    <div class="navigation-area">
+        <a routerLink="/documents">Back to documents list</a>
     
+        <div class="navigation-button-area">
+            <button mat-raised-button color="primary" [routerLink]="['/documents', 'view', documentId]">View Document</button>
+        </div>
+    </div>
+
+    <app-document-settings-edit></app-document-settings-edit>    
     <app-document-sections-edit></app-document-sections-edit>
 </div>

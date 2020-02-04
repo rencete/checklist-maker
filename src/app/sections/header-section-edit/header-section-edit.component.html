@@ -1,6 +1,6 @@
 <mat-form-field appearance="fill" class="title-input">
     <mat-label>Header text</mat-label>
-    <input matInput type="text" [(ngModel)]="model.title">
+    <textarea matInput type="text" [(ngModel)]="model.title" cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5"></textarea>
     <button mat-button *ngIf="model.title" matSuffix mat-icon-button aria-label="Clear" (click)="model.title=''">
         <mat-icon>close</mat-icon>
     </button>

@@ -1,22 +1,26 @@
-<mat-form-field appearance="fill" class="title-input">
-    <mat-label>Section name</mat-label>
-    <input matInput type="text" [(ngModel)]="model.title">
-    <button mat-button *ngIf="model.title" matSuffix mat-icon-button aria-label="Clear" (click)="model.title=''">
-        <mat-icon>close</mat-icon>
-    </button>
-</mat-form-field>
+<div class="checklist-title-settings-div">
+    <mat-form-field appearance="fill" class="title-input">
+        <mat-label>Section name</mat-label>
+        <textarea matInput type="text" [(ngModel)]="model.title" cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5"></textarea>
+        <button mat-button *ngIf="model.title" matSuffix mat-icon-button aria-label="Clear" (click)="model.title=''">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+    
+    <mat-slide-toggle [(ngModel)]="model.showTitle">
+        Display title in document
+    </mat-slide-toggle>
+</div>
 
-<mat-slide-toggle [(ngModel)]="model.showTitle">
-    Display Title
-</mat-slide-toggle>
+<div>
+    <mat-form-field appearance="outline" class="number-input">
+        <mat-label>Checkboxes</mat-label>
+        <input type="number" matInput [(ngModel)]="model.columns" step="1" min="1" max="10">
+        <mat-hint>Checkboxes per item</mat-hint>
+    </mat-form-field>
+</div>
 
-<mat-form-field appearance="outline" class="number-input">
-    <mat-label>Checkboxes</mat-label>
-    <input type="number" matInput [(ngModel)]="model.columns" step="1" min="1" max="10">
-    <mat-hint>Checkboxes per item</mat-hint>
-</mat-form-field>
-
-<div *ngIf="document.model.showPoints">
+<div *ngIf="document.model.showPoints" class="points-settings-div">
     <mat-form-field>
         <mat-label>Points Differentiation</mat-label>
         <mat-select [(ngModel)]="model.pointsType">
@@ -35,8 +39,6 @@
     </mat-form-field>
 </div>
 
-<mat-divider [inset]="true"></mat-divider>
-
 <h3>
     Checklist Items
     <button mat-mini-fab aria-label="Add checklist item button" color="primary" (click)="addItem()">
@@ -48,21 +50,23 @@
 
 <mat-list class="checklist-items-list" cdkDropList (cdkDropListDropped)="reorder($event)">
     <mat-list-item cdkDrag cdkDragBoundary=".checklist-items-list" *ngFor="let item of model.items; let index=index; trackBy:trackByIndex">
-        <mat-icon cdkDragHandle class="list__icon">drag_handle</mat-icon>
-        <mat-form-field [floatLabel]="'never'" class="list__input">
-            <input matInput type="text" placeholder="Item text" [(ngModel)]="model.items[index].text">
-            <button mat-button *ngIf="model.items[index].text" matSuffix mat-icon-button aria-label="Clear"
-                (click)="model.items[index].text=''">
-                <mat-icon>close</mat-icon>
+        <div class="checklist-line-item">
+            <mat-icon cdkDragHandle class="list__icon">drag_handle</mat-icon>
+            <mat-form-field [floatLabel]="'never'" class="list__input">
+                <textarea matInput type="text" placeholder="Item text" [(ngModel)]="model.items[index].text" cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="10"></textarea>
+                <button mat-button *ngIf="model.items[index].text" matSuffix mat-icon-button aria-label="Clear"
+                    (click)="model.items[index].text=''">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="checklist-item-points" *ngIf="!showPointsInSettings()">
+                <mat-label>Points</mat-label>
+                <input type="number" matInput [(ngModel)]="model.items[index].points" step="1" min="0">
+                <!-- <mat-hint>Item points</mat-hint> -->
+            </mat-form-field>
+            <button mat-button mat-icon-button aria-label="Delete" (click)="deleteItem(index)">
+                <mat-icon>delete</mat-icon>
             </button>
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="checklist-item-points" *ngIf="!showPointsInSettings()">
-            <mat-label>Points</mat-label>
-            <input type="number" matInput [(ngModel)]="model.items[index].points" step="1" min="0">
-            <!-- <mat-hint>Item points</mat-hint> -->
-        </mat-form-field>
-        <button mat-button mat-icon-button aria-label="Delete" (click)="deleteItem(index)">
-            <mat-icon>delete</mat-icon>
-        </button>
+        </div>
     </mat-list-item>
 </mat-list>

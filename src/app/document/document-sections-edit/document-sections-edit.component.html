@@ -11,11 +11,11 @@
                 <mat-expansion-panel-header>
                     <mat-panel-title>
                         <mat-icon cdkDragHandle>drag_handle</mat-icon>
-                        [{{section.type | uppercase}}]
+                        [{{section.type | uppercase}}] {{section.model?.title}}
                     </mat-panel-title>
-                    <mat-panel-description>
+                    <!-- <mat-panel-description>
                         {{section.model?.title}}
-                    </mat-panel-description>
+                    </mat-panel-description> -->
                 </mat-expansion-panel-header>
 
                 <ng-container [ngSwitch]="section.type">
