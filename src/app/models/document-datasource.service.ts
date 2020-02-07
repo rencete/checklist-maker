@@ -20,4 +20,12 @@ export class DocumentDataSource {
     getDocuments(): Observable<DocumentModel[]> {
         return this.http.get<DocumentModel[]>(`${this.baseUrl}/documents`);
     }
+
+    addDocument(document: DocumentModel): Observable<DocumentModel> {
+        return this.http.post<DocumentModel>(`${this.baseUrl}/documents`, document);
+    }
+
+    saveDocument(document: DocumentModel): Observable<DocumentModel> {
+        return this.http.put<DocumentModel>(`${this.baseUrl}/documents/${document.id}`, document);
+    }
 }

@@ -2,11 +2,17 @@
     <div class="navigation-area">
         <a routerLink="/documents">Back to documents list</a>
     
-        <div class="navigation-button-area">
-            <button mat-raised-button color="primary" [routerLink]="['/documents', 'view', documentId]">View Document</button>
+        <div class="navigation-button-area own-row" *ngIf="documentId">
+            <button mat-raised-button color="primary" [routerLink]="['/documents', 'view', documentId]">View</button>
+            <button mat-raised-button color="accent" (click)="saveModel()" [disabled]="loading">Save</button>
         </div>
     </div>
 
-    <app-document-settings-edit></app-document-settings-edit>    
-    <app-document-sections-edit></app-document-sections-edit>
+    <div class="document-editing-area">
+        <div class="loading-spinner" *ngIf="loading">
+            <mat-spinner></mat-spinner>
+        </div>
+        <app-document-settings-edit></app-document-settings-edit>    
+        <app-document-sections-edit></app-document-sections-edit>
+    </div>
 </div>

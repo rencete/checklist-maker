@@ -1,10 +1,10 @@
 <div *ngIf="document?.model">
+    <div class="navigation-button-area own-row">
+        <button mat-raised-button color="primary" (click)="goBackPreviousPage()">Go back</button>
+        <button mat-raised-button color="accent" [routerLink]="['/documents', 'edit', documentId]">Edit</button>
+    </div>
     <div class="document-title-area">
         <h3>{{this.document.model.title}}</h3>
-        <div class="navigation-button-area">
-            <button mat-raised-button color="primary" (click)="goBackPreviousPage()">Go back</button>
-            <button mat-raised-button color="accent" [routerLink]="['/documents', 'edit', documentId]">Edit</button>
-        </div>
     </div>
 
     <div class="main-document-view">
@@ -34,10 +34,8 @@
         </div>
     </div>
 
-    <div class="navigation-button-area bottom-row">
+    <div class="navigation-button-area own-row">
         <button mat-raised-button color="primary" (click)="goBackPreviousPage()">Go back</button>
         <button mat-raised-button color="accent" [routerLink]="['/documents', 'edit', documentId]">Edit</button>
-    </div>
-    <div class="">
     </div>
 </div>
