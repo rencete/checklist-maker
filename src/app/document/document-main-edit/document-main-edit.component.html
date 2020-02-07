@@ -2,8 +2,8 @@
     <div class="navigation-area">
         <a routerLink="/documents">Back to documents list</a>
     
-        <div class="navigation-button-area own-row" *ngIf="documentId">
-            <button mat-raised-button color="primary" [routerLink]="['/documents', 'view', documentId]">View</button>
+        <div class="navigation-button-area own-row">
+            <button mat-raised-button color="primary" *ngIf="documentId" [routerLink]="['/documents', 'view', documentId]">View</button>
             <button mat-raised-button color="accent" (click)="saveModel()" [disabled]="loading">Save</button>
         </div>
     </div>
