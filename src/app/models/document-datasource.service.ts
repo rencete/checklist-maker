@@ -28,4 +28,8 @@ export class DocumentDataSource {
     saveDocument(document: DocumentModel): Observable<DocumentModel> {
         return this.http.put<DocumentModel>(`${this.baseUrl}/documents/${document.id}`, document);
     }
+
+    deleteDocument(id:number): Observable<DocumentModel> {
+        return this.http.delete<DocumentModel>(`${this.baseUrl}/documents/${id}`);
+    }
 }

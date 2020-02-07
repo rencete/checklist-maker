@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { RouterModule } from '@angular/router';
 
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
-import { RouterModule } from '@angular/router';
 import { DocumentSettingsEditComponent } from './document-settings-edit/document-settings-edit.component';
 import { SectionsModule } from '../sections/sections.module';
 import { DocumentMainEditComponent } from './document-main-edit/document-main-edit.component';
@@ -13,6 +13,7 @@ import { DeleteSectionConfirmDialogComponent } from './document-sections-edit/de
 import { DocumentsListViewComponent } from './documents-list-view/documents-list-view.component';
 import { DocumentsListViewDataSource } from './documents-list-view/documents-list-view-datasource';
 import { DocumentMainViewComponent } from './document-main-view/document-main-view.component';
+import { DeleteDocumentConfirmDialogComponent } from './documents-list-view/delete-document-confirm-dialog.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { DocumentMainViewComponent } from './document-main-view/document-main-vi
     DocumentSectionsEditComponent,
     DeleteSectionConfirmDialogComponent,
     DocumentsListViewComponent,
-    DocumentMainViewComponent
+    DocumentMainViewComponent,
+    DeleteDocumentConfirmDialogComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +43,8 @@ import { DocumentMainViewComponent } from './document-main-view/document-main-vi
     DocumentsListViewDataSource
   ],
   entryComponents: [
-    DeleteSectionConfirmDialogComponent
+    DeleteSectionConfirmDialogComponent,
+    DeleteDocumentConfirmDialogComponent
   ]
 })
 export class DocumentModule { }

@@ -44,4 +44,16 @@ export class DocumentRepository {
     });
     return obs;
   }
+
+  deleteDocument(id: number) {
+    let index = this.documents.findIndex((doc) => {
+      doc.id == id
+    });
+    if(index) {
+      this.ds.deleteDocument(id).subscribe(() => {
+        this.documents.splice(index, 1);
+        this.documentsUpdated$.next(this.documents);
+      })
+    }
+  }
 }
