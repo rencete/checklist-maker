@@ -2,7 +2,7 @@ import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
-import { Observable, of as observableOf, merge } from 'rxjs';
+import { Observable, of as observableOf, merge, BehaviorSubject } from 'rxjs';
 import { DocumentModel } from 'src/app/models/document.model';
 import { Injectable } from '@angular/core';
 import { DocumentRepository } from 'src/app/models/document-repository.service';
@@ -14,12 +14,19 @@ import { DocumentRepository } from 'src/app/models/document-repository.service';
  */
 @Injectable()
 export class DocumentsListViewDataSource extends DataSource<DocumentModel> {
+  data$: BehaviorSubject<DocumentModel[]>;
   data: DocumentModel[] = [];
   paginator: MatPaginator;
   sort: MatSort;
 
   constructor(private repository: DocumentRepository) {
     super();
+    this.data = this.repository.documents;
+    this.data$ = new BehaviorSubject<DocumentModel[]>(this.data);
+    this.repository.documentsUpdated$.subscribe((docs) => {
+      this.data = docs;
+      this.data$.next(this.data);
+    });
   }
 
   /**
@@ -31,10 +38,7 @@ export class DocumentsListViewDataSource extends DataSource<DocumentModel> {
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
     const dataMutations = [
-      this.repository.documentsUpdated$.pipe(map(docs => {
-        this.data = docs;
-        return docs;
-      })),
+      this.data$.asObservable(),
       this.paginator.page,
       this.sort.sortChange
     ];
